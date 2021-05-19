@@ -7,13 +7,13 @@ Student::Student()
 	//grades = new string[1];
 }
 void Student::SetFull_name(string inp){
-	Full_name = inp;
+	Full_name = Full_name1;
 }
 string Student::GetFull_name(){
 	return Full_name;
 }
 void Student::SetGroup(string inp){
-	Group = inp;
+	Group = Group1;
 }
 string Student::GetGroup (){
 	return Group;
