@@ -6,7 +6,7 @@ Student::Student()
 	Subjects =[];
 	//Grades =[][];
 }
-Muz::Muz(const string& Full_name1,const int& Group1)
+Student::Student(const string& Full_name1,const int& Group1)
 {
 	Full_name=Full_name1;
 	Group=Group1;
