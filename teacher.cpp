@@ -52,5 +52,5 @@ istream& operator >> (istream& listi, Teacher& ms)
 	return(listi);
 }
 Teacher::~Teacher(){
-	delete[] groups;
+	delete[] Groups;
 }
