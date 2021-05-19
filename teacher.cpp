@@ -17,6 +17,12 @@ void Teacher::SetSubject(string inp){
 string Teacher::GetSubject(){
 	return Subject;
 }
+void Teacher::Set*Groups(string inp){
+	*Groups = inp;
+}
+string Teacher::Get*Groups(){
+	return *Groups;
+}
 void Teacher::print()
 {
 	cout<<endl;
@@ -24,6 +30,26 @@ void Teacher::print()
 	cout<<"Subject : "<<Subject<<endl;
 	cout<<"Groups : "<<*Groups<<endl;
 	cout<<"****************"<<endl;
+}
+void Teacher::read(istream& listi)
+{
+	listi>>Full_name;
+	listi>>Subject;
+	listi>>*Groups;
+}
+void Muz::Printf(ostream& listo)
+{
+	listo<<Full_name<<" "<<Subject<<" "<<*Groups<<endl;
+}
+ostream& operator << (ostream& listo, Teacher& ms)
+{
+	ms.Printf(listo);
+	return(listo);
+}
+istream& operator >> (istream& listi, Teacher& ms)
+{
+	ms.read(listi);
+	return(listi);
 }
 /*void Teacher::SetGroups(*inp,n){
 	Groups = new string[n];
