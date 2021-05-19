@@ -14,9 +14,9 @@ private:
 public:
 	Student();
 	~Student();
-	void SetFull_name(string Full_name1);
+	void SetFull_name(string inp);
 	string GetFull_name();
-	void SetGroup(string Group1);
+	void SetGroup(string inp);
 	string GetGroup();
 	Student(const string& Full_name,const int& Group);
 	void read(istream& listi);
