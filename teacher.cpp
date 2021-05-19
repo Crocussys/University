@@ -17,6 +17,14 @@ void Teacher::SetSubject(string inp){
 string Teacher::GetSubject(){
 	return Subject;
 }
+void Teacher::print()
+{
+	cout<<endl;
+	cout<<"Full name : "<<Full_name<<endl;
+	cout<<"Subject : "<<Subject<<endl;
+	cout<<"Groups : "<<*Groups<<endl;
+	cout<<"****************"<<endl;
+}
 /*void Teacher::SetGroups(*inp,n){
 	Groups = new string[n];
 	for (i=0;i<n;i++){
