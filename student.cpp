@@ -3,8 +3,8 @@
 Student::Student()
 {	Full_name ="";
 	Group ="";
-	//subjects = new string[1];
-	//grades = new string[1];
+	Subjects =[];
+	//Grades =[][];
 }
 void Student::SetFull_name(string inp){
 	Full_name = inp;
@@ -61,5 +61,5 @@ void Student::SetGrades(int *inp,int n){
 }
 Student::~Student(){
 	delete [] subjects;
-	delete [] grades;
-}*/
+	//delete [] grades;
+}

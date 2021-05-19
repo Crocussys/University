@@ -3,7 +3,7 @@
 Teacher::Teacher(){
 	Full_name = "";
 	Subject = "";
-	//Groups = new string[1];
+	Groups = [];
 }
 void Teacher::SetFull_name(string inp){
 	Full_name = inp;
@@ -37,7 +37,7 @@ void Teacher::read(istream& listi)
 	listi>>Subject;
 	listi>>*Groups;
 }
-void Muz::Printf(ostream& listo)
+void Teacher::Printf(ostream& listo)
 {
 	listo<<Full_name<<" "<<Subject<<" "<<*Groups<<endl;
 }
