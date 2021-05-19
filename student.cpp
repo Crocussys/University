@@ -18,6 +18,32 @@ void Student::SetGroup(string inp){
 string Student::GetGroup (){
 	return Group;
 }
+void Student::print()
+{
+	cout<<endl;
+	cout<<"Full name : "<<Full_name<<endl;
+	cout<<"Group : "<<Group<<endl;
+	cout<<"****************"<<endl;
+}
+void Student::read(istream& listi)
+{
+	listi>>Full_name;
+	listi>>Group;
+}
+void Student::Printf(ostream& listo)
+{
+	listo<<Full_name<<" "<<Group<<" "<<endl;
+}
+ostream& operator << (ostream& listo, Student& ms)
+{
+	ms.Printf(listo);
+	return(listo);
+}
+istream& operator >> (istream& listi, Student& ms)
+{
+	ms.read(listi);
+	return(listi);
+}
 /*void Student::SetSubjects(string *inp,int n){
 	subjects = new string[n];
 	for (i=0;i<n;i++){
