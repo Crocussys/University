@@ -5,6 +5,11 @@ Teacher::Teacher(){
 	Subject = "";
 	Groups = [];
 }
+Teacher::Teacher(const string& Full_name1,const int& Subject1)
+{
+	Full_name=Full_name1;
+	Subject=Subject1;
+}
 void Teacher::SetFull_name(string inp){
 	Full_name = inp;
 }
