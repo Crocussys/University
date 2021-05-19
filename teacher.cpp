@@ -51,15 +51,6 @@ istream& operator >> (istream& listi, Teacher& ms)
 	ms.read(listi);
 	return(listi);
 }
-/*void Teacher::SetGroups(*inp,n){
-	Groups = new string[n];
-	for (i=0;i<n;i++){
-	Groups[i]=inp[i];
-	}
-}
-string* Teacher::GetGroups(){
-	return Groups;
-}
 Teacher::~Teacher(){
 	delete[] groups;
-}*/
+}

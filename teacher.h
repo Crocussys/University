@@ -22,6 +22,7 @@ public:
 	string GetSubject();
 	void SetGroups(int *inp,int n);
 	string* GetGroups();
+	~Teacher();
 };
 ostream& operator<<(ostream& listo, Teacher& ms);
 istream& operator>>(istream& listi, Teacher& ms);
