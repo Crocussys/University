@@ -23,6 +23,6 @@ public:
 	void SetGroups(int *inp,int n);
 	string* GetGroups();
 };
-ostream& operator<<(ostream& listo, Muz& ms);
-istream& operator>>(istream& listi, Muz& ms);
+ostream& operator<<(ostream& listo, Teacher& ms);
+istream& operator>>(istream& listi, Teacher& ms);
 #endif // TEACHER_H
