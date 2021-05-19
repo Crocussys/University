@@ -18,10 +18,15 @@ public:
 	string GetFull_name();
 	void SetGroup(string Group1);
 	string GetGroup();
+	Student(const string& Full_name,const int& Group);
+	void read(istream& listi);
+	void Printf(ostream& listo);
+	void print();
 	//void SetSubjects(string *inp,int n);
 	//string* GetSubjects();
 	//void SetGrades(int *inp,int n);
 	//int* GetGrades();
 };
-
+ostream& operator<<(ostream& listo, Student& ms);
+istream& operator>>(istream& listi, Student& ms);
 #endif // STUDENT_H
