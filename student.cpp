@@ -6,6 +6,11 @@ Student::Student()
 	Subjects =[];
 	//Grades =[][];
 }
+Muz::Muz(const string& Full_name1,const int& Group1)
+{
+	Full_name=Full_name1;
+	Group=Group1;
+}
 void Student::SetFull_name(string inp){
 	Full_name = inp;
 }
