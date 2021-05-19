@@ -14,9 +14,9 @@ private:
 public:
 	Student();
 
-	void SetFull_name(string inp);
+	void SetFull_name(string Full_name1);
 	string GetFull_name();
-	void SetGroup(string inp);
+	void SetGroup(string Group1);
 	string GetGroup();
 	//void SetSubjects(string *inp,int n);
 	//string* GetSubjects();
