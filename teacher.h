@@ -10,20 +10,28 @@ private:
 	string Full_name;
 	string Subject;
 	string *Groups; 
+    int countGroups;
+
+    int getGroupId(string group);
 public:
 	Teacher();
-	Teacher(const string& Full_name, const string& Subject, const string& *Groups);
+    Teacher(string name, string subject, int count_groups);
+    ~Teacher();
+
 	void read(istream& listi);
 	void Printf(ostream& listo);
 	void print();
+
+    void addGroup(string group);
+    void removeGroup(string group);
+
 	void SetFull_name(string inp);
 	string GetFull_name();
 	void SetSubject(string inp);
-	string GetSubject();
-	void SetGroups(int *inp,int n);
-	string* GetGroups();
-	~Teacher();
+    string GetSubject();
+
+    friend ostream& operator<<(ostream& out, Teacher& tc);
+    friend istream& operator>>(istream& in, Teacher& tc);
 };
-ostream& operator<<(ostream& listo, Teacher& ms);
-istream& operator>>(istream& listi, Teacher& ms);
+
 #endif // TEACHER_H

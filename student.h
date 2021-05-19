@@ -9,24 +9,38 @@ class Student
 private:
 	string Full_name;
 	string Group;
+
+    int countSubjects;
+    int *countGrades;
+
 	string *Subjects;
 	int **Grades;
+
+    int getSubjectId(string subject);
 public:
 	Student();
-	~Student();
+    Student(string name, string group, int count_s);
+    ~Student();
+
+    void print();
+
+    void addSubject(string subject);
+    void addGrade(string subject, int grade);
+    void removeSubject(string subject);
+    void removeGradeById(string subject, int id);
+
 	void SetFull_name(string Full_name1);
 	string GetFull_name();
-	void SetGroup(string Group1);
+    void SetGroup(string group);
 	string GetGroup();
-	Student(const string& Full_name,const int& Group);
-	void read(istream& listi);
-	void Printf(ostream& listo);
-	void print();
-	//void SetSubjects(string *inp,int n);
-	//string* GetSubjects();
-	//void SetGrades(int *inp,int n);
-	//int* GetGrades();
+
+//    Реализовать:
+//
+    void SetCountSubjects(int group);
+    int GetCountSubjects();
+//
+    friend ostream& operator<<(ostream& listo, Student& ms);
+    friend istream& operator>>(istream& listi, Student& ms);
 };
-ostream& operator<<(ostream& listo, Student& ms);
-istream& operator>>(istream& listi, Student& ms);
+
 #endif // STUDENT_H
