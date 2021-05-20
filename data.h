@@ -8,6 +8,7 @@ public:
     Data();
     void read(istream& listi);
     void Printf(ostream& listo);
+    ~Data();
 };
 
 #endif // DATA_H
