@@ -6,8 +6,8 @@ class Data
 {
 public:
     Data();
-    void read(istream& listi);
-    void Printf(ostream& listo);
+    void Load(istream& in);
+    void Save(ostream& out);
     ~Data();
 };
 
