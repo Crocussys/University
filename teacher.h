@@ -18,8 +18,8 @@ public:
     Teacher(string name, string subject, int count_groups);
     ~Teacher();
 
-	void read(istream& listi);
-	void Printf(ostream& listo);
+	void Load(istream& in);
+	void Save(ostream& out);
 	void print();
 
     void addGroup(string group);
