@@ -10,6 +10,15 @@ public:
       void StudentLoad(istream& in);
       void TeacherSave(ostream& out);
       void StudentSave(ostream& out);
+    Teacher* teachers;
+    fstream teachers_file;
+    char* teachers_file_name;
+    int teachers_file_size;
+
+    Student* students;
+    fstream students_file;
+    char* students_file_name;
+    int students_file_size;
     ~Data();
 };
 
