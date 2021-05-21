@@ -22,6 +22,7 @@ public:
     Student(string name, string group, int count_s);
     ~Student();
 
+//  А зачем?
     void print();
 
     void addSubject(string subject);
@@ -35,12 +36,10 @@ public:
 	string GetGroup();
 
 //    Реализовать:
-//
-    void SetCountSubjects(int group);
     int GetCountSubjects();
-//
-    friend ostream& operator<<(ostream& listo, Student& ms);
-    friend istream& operator>>(istream& listi, Student& ms);
+
+    friend ostream& operator<<(ostream& out, Student& st);
+    friend istream& operator>>(istream& in, Student& st);
 };
 
 #endif // STUDENT_H

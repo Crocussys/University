@@ -6,8 +6,8 @@ class Data
 {
 public:
     Data();
-    void Load(istream& in);
-    void Save(ostream& out);
+//    void Load(istream& in);
+//    void Save(ostream& out);
     ~Data();
 };
 

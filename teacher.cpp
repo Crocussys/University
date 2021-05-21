@@ -6,12 +6,12 @@ Teacher::Teacher(){
     countGroups = 0;
     Groups = nullptr;
 }
-Teacher::Teacher(string name, string subject, int count_groups){
-    Full_name = name;
-    Subject = subject;
-    countGroups = count_groups;
-    Groups = new string[count_groups];
-}
+//Teacher::Teacher(string name, string subject, int count_groups){
+//    Full_name = name;
+//    Subject = subject;
+//    countGroups = count_groups;
+//    Groups = new string[count_groups];
+//}
 int Teacher::getGroupId(string group){
     for (int i = 0; i < countGroups; i++){
         if(Groups[i] == group){
@@ -33,7 +33,7 @@ void Teacher::addGroup(string group){
     count++;
     countGroups = count;
     Groups = new string[count];
-    for (int i = 0; i < count; i++)
+    for (int i = 0; i < count - 1; i++)
         Groups[i] = cash[i];
     Groups[count - 1] = group;
     delete [] cash;
@@ -78,34 +78,40 @@ void Teacher::SetSubject(string inp){
 string Teacher::GetSubject(){
 	return Subject;
 }
-void Teacher::print()
+//void Teacher::print()
+//{
+//	cout<<endl;
+//	cout<<"Full name : "<<Full_name<<endl;
+//	cout<<"Subject : "<<Subject<<endl;
+//	cout<<"Groups : "<<*Groups<<endl;
+//	cout<<"****************"<<endl;
+//}
+ostream& operator << (ostream& out, Teacher& tc)
 {
-	cout<<endl;
-	cout<<"Full name : "<<Full_name<<endl;
-	cout<<"Subject : "<<Subject<<endl;
-	cout<<"Groups : "<<*Groups<<endl;
-	cout<<"****************"<<endl;
+    int count_g = tc.countGroups;
+    out << tc.GetFull_name() << "|";
+    out << tc.GetSubject() << "|";
+    out << count_g << "|";
+    for (int i = 0; i < count_g; i++)
+        out << tc.Groups[i] << "|";
+    return out;
 }
-//void Teacher::read(istream& listi)
-//{
-//	listi>>Full_name;
-//	listi>>Subject;
-//	listi>>*Groups;
-//}
-//void Teacher::Printf(ostream& listo)
-//{
-//	listo<<Full_name<<" "<<Subject<<" "<<*Groups<<endl;
-//}
-//ostream& operator << (ostream& listo, Teacher& ms)
-//{
-//	ms.Printf(listo);
-//	return(listo);
-//}
-//istream& operator >> (istream& listi, Teacher& ms)
-//{
-//	ms.read(listi);
-//	return(listi);
-//}
+istream& operator >> (istream& in, Teacher& tc)
+{
+    string instr;
+    int count_g = 0;
+    getline(in, instr, '|');
+    tc.SetFull_name(instr);
+    getline(in, instr, '|');
+    tc.SetSubject(instr);
+    getline(in, instr, '|');
+    count_g = stoi(instr);
+    for (int i = 0; i < count_g; i++){
+        getline(in, instr, '|');
+        tc.addGroup(instr);
+    }
+    return in;
+}
 Teacher::~Teacher(){
 	delete[] Groups;
 }

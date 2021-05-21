@@ -15,7 +15,7 @@ private:
     int getGroupId(string group);
 public:
 	Teacher();
-    Teacher(string name, string subject, int count_groups);
+//    Teacher(string name, string subject, int count_groups);
     ~Teacher();
 
 	void Load(istream& in);
@@ -29,6 +29,9 @@ public:
 	string GetFull_name();
 	void SetSubject(string inp);
     string GetSubject();
+
+    //Реализовать:
+    int GetCountGroupes();
 
     friend ostream& operator<<(ostream& out, Teacher& tc);
     friend istream& operator>>(istream& in, Teacher& tc);

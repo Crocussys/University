@@ -59,7 +59,7 @@ void Student::addSubject(string subject){
     Subjects = new string[countSubjects];
     countGrades = new int[countSubjects];
     Grades = new int*[countSubjects];
-    for (int i = 0; i < countSubjects; i++){
+    for (int i = 0; i < countSubjects - 1; i++){
         Subjects[i] = cashS[i];
         countGrades[i] = cashC[i];
         Grades[i] = cashG[i];
@@ -134,16 +134,15 @@ void Student::addGrade(string subject, int grade){
     for (int i = 0; i < count; i++)
         cash[i] = grades[i];
     Grades[id] = nullptr;
+    delete [] grades;
     grades = nullptr;
     count++;
     countGrades[id] = count;
-    grades = new int[count];
-    for (int i = 0; i < count; i++)
-        grades[i] = cash[i];
-    grades[count - 1] = grade;
-    Grades[id] = grades;
+    Grades[id] = new int[count];
+    for (int i = 0; i < count - 1; i++)
+        Grades[id][i] = cash[i];
+    Grades[id][count - 1] = grade;
     delete [] cash;
-    delete [] grades;
 }
 
 void Student::removeGradeById(string subject, int id){
@@ -184,26 +183,43 @@ void Student::removeGradeById(string subject, int id){
 }
 ostream& operator << (ostream& out, Student& st)
 {
+    int count_s = st.countSubjects;
     out << st.GetFull_name() << "|";
     out << st.GetGroup() << "|";
- //   out << st.GetCountSubjects() << "|";
-    for (int i = 0; i < st.countSubjects; i++)
+    out << count_s << "|";
+    for (int i = 0; i < count_s; i++){
         out << st.Subjects[i] << "|";
-    for (int i = 0; i < st.countSubjects; i++){
-        out << st.countGrades[i] << "|";
-        for (int j = 0; j < st.countGrades[i]; j++)
-            out << st.Grades[i][j] << "|";
+        int count_grs = st.countGrades[i];
+        int *grs = st.Grades[i];
+        out << count_grs << "|";
+        for (int j = 0; j < count_grs; j++)
+            out << grs[j] << "|";
     }
-    out << endl;
     return out;
 }
-//istream& operator >> (istream& in, Student& st)
-//{
-//    string instr;
-//    in >> instr;
-
-//    return in;
-//}
+istream& operator >> (istream& in, Student& st)
+{
+    int count_s;
+    string instr;
+    getline(in, instr, '|');
+    st.SetFull_name(instr);
+    getline(in, instr, '|');
+    st.SetGroup(instr);
+    getline(in, instr, '|');
+    count_s = stoi(instr);
+    for (int i = 0; i < count_s; i++){
+        getline(in, instr, '|');
+        string sub = instr;
+        st.addSubject(instr);
+        getline(in, instr, '|');
+        int count_gr = stoi(instr);
+        for (int j = 0; j < count_gr; j++){
+            getline(in, instr, '|');
+            st.addGrade(sub, stoi(instr));
+        }
+    }
+    return in;
+}
 Student::~Student(){
     delete [] countGrades;
     delete [] Subjects;
