@@ -7,7 +7,7 @@ class Data
 public:
     Data();
 //    void Load(istream& in);
-//    void Save(ostream& out);
+//    void TeacherSave(ostream& out);
     ~Data();
 };
 
