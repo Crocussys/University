@@ -16,10 +16,10 @@ private:
     int students_file_size;
 public:
     Data();
-      void TeacherLoad();
-      void StudentLoad();
-      void TeacherSave();
-      void StudentSave();
+      void TeacherLoad(char*filename);
+      void StudentLoad(char*filename);
+      void TeacherSave(char*filename);
+      void StudentSave(char*filename);
     ~Data();
 };
 
