@@ -4,32 +4,32 @@ Data::Data()
 {
 
 }
-void Data::TeacherLoad(){
+void Data::TeacherLoad(char*filename){
     file >> size;
     Teach = new Teacher[size];
     for (int i = 0; i < size; i ++){
         file >> Teach[i];
     }
-void Data::StudentLoad(){
+void Data::StudentLoad(char*filename){
     file >> size;
     Stud = new Student[size];
     for (int i = 0; i < size; i ++){
         file >> Stud[i];
     }
-void Data::TeacherSave(){
+void Data::TeacherSave(char*filename){
     file.close();
-    file.open(FileName);
+    file.open(fileName);
     file << size;
     for (int i = 0; i < size; i++){
         file << Teach[i];
     }
-void Data::StudentSave(){
+void Data::StudentSave(char*filename){
     file.close();
-    file.open(FileName);
+    file.open(fileName);
     file << size;
     for (int i = 0; i < size; i++){
         file << Srud[i];
     }
     file.close();
-    file.open(FileName);
+    file.open(fileName);
 }
