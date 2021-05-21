@@ -4,7 +4,7 @@ Data::Data()
 {
 
 }
-void DataBase::Save(){
+void Data::TeacherSave(){
     file.close();
     file.open(FileName);
     file << size;
