@@ -6,10 +6,10 @@ class Data
 {
 public:
     Data();
-      void TeacherLoad(istream& in);
-      void StudentLoad(istream& in);
-      void TeacherSave(ostream& out);
-      void StudentSave(ostream& out);
+      void TeacherLoad();
+      void StudentLoad();
+      void TeacherSave();
+      void StudentSave();
     Teacher* teachers;
     fstream teachers_file;
     char* teachers_file_name;
