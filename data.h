@@ -6,8 +6,10 @@ class Data
 {
 public:
     Data();
-//    void Load(istream& in);
-//    void TeacherSave(ostream& out);
+      void TeacherLoad(istream& in);
+      void StudentLoad(istream& in);
+      void TeacherSave(ostream& out);
+      void StudentSave(ostream& out);
     ~Data();
 };
 
