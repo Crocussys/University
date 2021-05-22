@@ -63,7 +63,7 @@ void Data::StudentSave(){
     students_file.open(students_file_name, ios::out|ios::trunc);
     students_file << students_file_size;
     for (int i = 0; i < students_file_size; i++){
-        students_file << students[i];
+        students_file << students[i] << endl;
     }
     students_file.close();
     students_file.open(students_file_name, ios::in);
