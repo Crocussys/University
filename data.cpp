@@ -2,34 +2,69 @@
 
 Data::Data()
 {
-
+    teachers = nullptr;
+    teachers_file_name = nullptr;
+    teachers_file_size = -1;
+    students = nullptr;
+    students_file_name = nullptr;
+    students_file_size = -1;
 }
-void Data::TeacherLoad(char*filename){
-    teachers_file >> teachers_file_size;
-    Teachers = new Teacher[size];
-    for (int i = 0; i < teachers_file_size; i ++){
-        teachers_file >> Teachers[i];
+Data::Data(char *tfn, char *sfn){
+    teachers_file_name = tfn;
+    students_file_name = sfn;
+    teachers_file.open(tfn, ios::in);
+    if (!teachers_file){
+        cout << "Ошибка открытия файла." << endl;
+        throw "Error openning file";
     }
-void Data::StudentLoad(char*filename){
-    students_file >> students_file_size;
-    Students = new Student[size];
-    for (int i = 0; i < students_file_size; i ++){
-        students_file >> Students[i];
+    students_file.open(sfn, ios::in);
+    if (!students_file){
+        cout << "Ошибка открытия файла." << endl;
+        throw "Error openning file";
     }
-void Data::TeacherSave(char*filename){
-    file.close();
-    file.open(teachers_file_name);
+    teachers_file_size = -1;
+    students_file_size = -1;
+    teachers = nullptr;
+    students = nullptr;
+}
+Data::~Data(){
+    teachers_file.close();
+    students_file.close();
+    delete [] teachers;
+    delete [] students;
+}
+void Data::Load(){
+    int size;
+    teachers_file >> size;
+    teachers_file_size = size;
+    teachers = new Teacher[size];
+    for (int i = 0; i < size; i ++){
+        teachers_file >> teachers[i];
+    }
+    students_file >> size;
+    students_file_size = size;
+    students = new Student[size];
+    for (int i = 0; i < size; i ++){
+        students_file >> students[i];
+    }
+}
+void Data::TeacherSave(){
+    teachers_file.close();
+    teachers_file.open(teachers_file_name, ios::out|ios::trunc);
     teachers_file << teachers_file_size;
     for (int i = 0; i < teachers_file_size; i++){
-        teachers_file << Teachers[i];
+        teachers_file << teachers[i] << endl;
     }
-void Data::StudentSave(char*filename){
-    file.close();
-    file.open(students_file_name);
+    teachers_file.close();
+    teachers_file.open(teachers_file_name, ios::in);
+}
+void Data::StudentSave(){
+    students_file.close();
+    students_file.open(students_file_name, ios::out|ios::trunc);
     students_file << students_file_size;
     for (int i = 0; i < students_file_size; i++){
-        students_file << Studens[i];
+        students_file << students[i];
     }
-    file.close();
-    file.open(fileName);
+    students_file.close();
+    students_file.open(students_file_name, ios::in);
 }

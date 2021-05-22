@@ -1,5 +1,8 @@
 #ifndef DATA_H
 #define DATA_H
+#include <fstream>
+#include "teacher.h"
+#include "student.h"
 
 
 class Data
@@ -16,11 +19,22 @@ private:
     int students_file_size;
 public:
     Data();
-      void TeacherLoad(char*filename);
-      void StudentLoad(char*filename);
-      void TeacherSave(char*filename);
-      void StudentSave(char*filename);
+    Data(char *tfn, char *sfn);
     ~Data();
+
+    void Load();
+    void TeacherSave();
+    void StudentSave();
+
+    Teacher GetTeacherById(int id);
+    Student GetStudentById(int id);
+
+    void AddTeacher(Teacher tc);
+    void AddStudent(Student st);
+    int *SearchTeacher(int flag);
+    int *SearchStudent(int flag);
+    void DeleteTeacher(int id);
+    void DeleteStudent(int id);
 };
 
 #endif // DATA_H

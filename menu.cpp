@@ -5,7 +5,7 @@ using namespace std;
 
 Menu::Menu()
 {
-flag = -1;
+    flag = -1;
 }
 void Menu::start()
 {
