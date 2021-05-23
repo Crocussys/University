@@ -22,9 +22,6 @@ public:
     Student(string name, string group, int count_s);
     ~Student();
 
-//  А зачем?
-    void print();
-
     void addSubject(string subject);
     void addGrade(string subject, int grade);
     void removeSubject(string subject);
