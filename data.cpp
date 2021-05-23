@@ -71,30 +71,30 @@ void Data::StudentSave(){
 void Data::AddTeacher(Teacher tch){
     Teacher* tech = new Teacher[teachers_file_size];
     for (int i = 0; i < teachers_file_size; i++){
-        tech[i] = temp[i];
+        tech[i] = teachers[i];
     }
-    delete [] temp;
+    delete [] teachers;
     teachers_file_size++;
-    temp = new Teacher[teachers_file_size];
+    teachers = new Teacher[teachers_file_size];
     for (int i = 0; i < teachers_file_size - 1; i++){
         tch[i] = tech[i];
     }
-    temp[teachers_file_size - 1] = tch;
+    teachers[teachers_file_size - 1] = tch;
     delete [] tech;
     Save();
 }
 void Data::AddStudent(Student std){
     Student* stud = new Student[students_file_size];
     for (int i = 0; i < students_file_size; i++){
-        stud[i] = temp[i];
+        stud[i] = students[i];
     }
-    delete [] temp;
+    delete [] students;
     students_file_size++;
     temp = new Students[students_file_size];
     for (int i = 0; i < teachers_file_size - 1; i++){
         std[i] = stud[i];
     }
-    temp[students_file_size - 1] = std;
+    students[students_file_size - 1] = std;
     delete [] stud;
     Save();
 }
