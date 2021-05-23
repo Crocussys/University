@@ -31,7 +31,6 @@ public:
 	string GetFull_name();
     void SetGroup(string group);
 	string GetGroup();
-
     int GetCountSubjects();
 
     friend ostream& operator<<(ostream& out, Student& st);

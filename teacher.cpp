@@ -6,12 +6,6 @@ Teacher::Teacher(){
     countGroups = 0;
     Groups = nullptr;
 }
-//Teacher::Teacher(string name, string subject, int count_groups){
-//    Full_name = name;
-//    Subject = subject;
-//    countGroups = count_groups;
-//    Groups = new string[count_groups];
-//}
 int Teacher::getGroupId(string group){
     for (int i = 0; i < countGroups; i++){
         if(Groups[i] == group){
@@ -78,14 +72,6 @@ void Teacher::SetSubject(string inp){
 string Teacher::GetSubject(){
 	return Subject;
 }
-//void Teacher::print()
-//{
-//	cout<<endl;
-//	cout<<"Full name : "<<Full_name<<endl;
-//	cout<<"Subject : "<<Subject<<endl;
-//	cout<<"Groups : "<<*Groups<<endl;
-//	cout<<"****************"<<endl;
-//}
 ostream& operator << (ostream& out, Teacher& tc)
 {
     int count_g = tc.countGroups;
@@ -115,6 +101,6 @@ istream& operator >> (istream& in, Teacher& tc)
 Teacher::~Teacher(){
 	delete[] Groups;
 }
-int Teacher::GetCountGroups(){
+int Teacher::GetCountGroupes(){
 	return countGroups;
 }

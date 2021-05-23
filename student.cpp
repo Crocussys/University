@@ -31,14 +31,6 @@ void Student::SetGroup(string inp){
 string Student::GetGroup (){
 	return Group;
 }
-void Student::print()
-{
-	cout<<endl;
-	cout<<"Full name : "<<Full_name<<endl;
-	cout<<"Group : "<<Group<<endl;
-	cout<<"****************"<<endl;
-}
-
 void Student::addSubject(string subject){
     if (getSubjectId(subject) != -1){
         cout << "Такой предмет уже существует" << endl;

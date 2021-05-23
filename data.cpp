@@ -77,11 +77,11 @@ void Data::AddTeacher(Teacher tch){
     teachers_file_size++;
     teachers = new Teacher[teachers_file_size];
     for (int i = 0; i < teachers_file_size - 1; i++){
-        tch[i] = tech[i];
+        teachers[i] = tech[i];
     }
     teachers[teachers_file_size - 1] = tch;
     delete [] tech;
-    Save();
+    TeacherSave();
 }
 void Data::AddStudent(Student std){
     Student* stud = new Student[students_file_size];
@@ -90,11 +90,57 @@ void Data::AddStudent(Student std){
     }
     delete [] students;
     students_file_size++;
-    temp = new Students[students_file_size];
+    students = new Student[students_file_size];
     for (int i = 0; i < teachers_file_size - 1; i++){
-        std[i] = stud[i];
+        students[i] = stud[i];
     }
     students[students_file_size - 1] = std;
     delete [] stud;
-    Save();
+    StudentSave();
+}
+int *Data::SearchTeacher(int flag, string inp){
+    if (flag < 0 || flag > 2){
+        cout << "Ошибка флага." << endl;
+        throw "Error flag";
+    }
+    int size = teachers_file_size;
+    int count = 0;
+    int *cash = new int[size];
+    for (int i = 0; i < size; i++){
+        Teacher tc = teachers[i];
+        if (flag == 0 || (flag == 1 && !tc.GetFull_name().find(inp)) || (flag == 2 && !tc.GetSubject().find(inp))){
+            cash[count] = i;
+            count++;
+        }
+    }
+    int *result = new int[count + 1];
+    result[0] = count;
+    for (int i = 1; i < count + 1; i++){
+        result[i] = cash[i - 1];
+    }
+    delete [] cash;
+    return result;
+}
+int *Data::SearchStudent(int flag, string inp){
+    if (flag < 0 || flag > 2){
+        cout << "Ошибка флага." << endl;
+        throw "Error flag";
+    }
+    int size = students_file_size;
+    int count = 0;
+    int *cash = new int[size];
+    for (int i = 0; i < size; i++){
+        Student st = students[i];
+        if (flag == 0 || (flag == 1 && !st.GetFull_name().find(inp)) || (flag == 2 && !st.GetGroup().find(inp))){
+            cash[count] = i;
+            count++;
+        }
+    }
+    int *result = new int[count + 1];
+    result[0] = count;
+    for (int i = 1; i < count + 1; i++){
+        result[i] = cash[i - 1];
+    }
+    delete [] cash;
+    return result;
 }

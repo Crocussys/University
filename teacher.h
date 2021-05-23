@@ -14,13 +14,11 @@ private:
 
     int getGroupId(string group);
 public:
-	Teacher();
-//    Teacher(string name, string subject, int count_groups);
+    Teacher();
     ~Teacher();
 
 	void Load(istream& in);
-	void Save(ostream& out);
-	void print();
+    void Save(ostream& out);
 
     void addGroup(string group);
     void removeGroup(string group);
