@@ -80,6 +80,6 @@ void Data::AddTeacher(Teacher tch){
         tch[i] = tech[i];
     }
     temp[teachers_file_size - 1] = tch;
-    delete [] cash;
+    delete [] tech;
     Save();
 }
