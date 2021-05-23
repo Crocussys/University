@@ -225,3 +225,6 @@ Student::~Student(){
     delete [] Subjects;
     delete [] Grades;
 }
+int Student::GetCountSubjects(){
+	return countSubjects;
+}
