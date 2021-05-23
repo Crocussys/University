@@ -32,7 +32,6 @@ public:
     void SetGroup(string group);
 	string GetGroup();
 
-//    Реализовать:
     int GetCountSubjects();
 
     friend ostream& operator<<(ostream& out, Student& st);
