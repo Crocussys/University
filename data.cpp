@@ -68,3 +68,18 @@ void Data::StudentSave(){
     students_file.close();
     students_file.open(students_file_name, ios::in);
 }
+void Data::AddTeacher(Teacher tch){
+    Teacher* tech = new Teacher[teachers_file_size];
+    for (int i = 0; i < teachers_file_size; i++){
+        tech[i] = temp[i];
+    }
+    delete [] temp;
+    teachers_file_size++;
+    temp = new Teacher[teachers_file_size];
+    for (int i = 0; i < teachers_file_size - 1; i++){
+        tch[i] = tech[i];
+    }
+    temp[teachers_file_size - 1] = tch;
+    delete [] cash;
+    Save();
+}
