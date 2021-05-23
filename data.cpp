@@ -81,5 +81,20 @@ void Data::AddTeacher(Teacher tch){
     }
     temp[teachers_file_size - 1] = tch;
     delete [] tech;
-    TeacherSave();
+    Save();
+}
+void Data::AddStudent(Student std){
+    Student* stud = new Student[students_file_size];
+    for (int i = 0; i < students_file_size; i++){
+        stud[i] = temp[i];
+    }
+    delete [] temp;
+    students_file_size++;
+    temp = new Students[students_file_size];
+    for (int i = 0; i < teachers_file_size - 1; i++){
+        std[i] = stud[i];
+    }
+    temp[students_file_size - 1] = std;
+    delete [] stud;
+    Save();
 }
