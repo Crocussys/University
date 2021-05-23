@@ -115,3 +115,6 @@ istream& operator >> (istream& in, Teacher& tc)
 Teacher::~Teacher(){
 	delete[] Groups;
 }
+int Teacher::GetCountGroups(){
+	return countGroups;
+}
