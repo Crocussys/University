@@ -29,8 +29,6 @@ public:
 	string GetFull_name();
 	void SetSubject(string inp);
     string GetSubject();
-
-    //Реализовать:
     int GetCountGroupes();
 
     friend ostream& operator<<(ostream& out, Teacher& tc);
