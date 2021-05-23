@@ -81,5 +81,5 @@ void Data::AddTeacher(Teacher tch){
     }
     temp[teachers_file_size - 1] = tch;
     delete [] tech;
-    Save();
+    TeacherSave(();
 }
