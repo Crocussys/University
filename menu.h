@@ -24,6 +24,8 @@ public:
 	void teacher();
 	void student();
 	void start();
+	void SearchStudent();
+	void SearchTeacher();
 };
 
 #endif // MENU_H

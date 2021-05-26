@@ -41,10 +41,10 @@ void Menu::admin()
 			addTeacher();
 		}
 		else if (input==2) {
-			//функция для поиска
+			SearchStudent();
 		}
 		else if (input==3) {
-			//функция для поиска
+			SearchTeacher();
 		}
 		else if (input==4) {
 			cout << "До свидания" << endl;
@@ -59,11 +59,11 @@ void Menu::teacher()
     string name;
         cout << "Введите ФИО" << endl;
         cin >> name;
-        int *arr=SearchTeacher (1,name);
+        int *arr=db.SearchTeacher (1,name);
     int sizeArr=arr[0];
     Teacher objTh;
     for (int i=1; i<=sizeArr; i++) {
-        objTh=GetTeacherById(arr[i]);
+        objTh=db.GetTeacherById(arr[i]);
         while (true) {
             cout << "Вы " << objTh.GetFull_name() << "?" << endl;
             string answer;
@@ -79,7 +79,7 @@ void Menu::teacher()
     }
     int input;
         while (true) {
-                cout << thMEnu << endl;
+                cout << thMenu << endl;
                 cin >> input;
                 if (input==0) {
 
@@ -97,9 +97,28 @@ void Menu::student()
     string name;
     cout << "Введите ФИО" << endl;
         cin >> name;
+	int *arr=db.SearchStudent (1,name);
+    	int sizeArr=arr[0];
+    	Student objSt;
+    	for (int i=1; i<=sizeArr; i++) {
+		objSt=db.GetStudentById(arr[i]);
+		while (true) {
+            		cout << "Вы " << objSt.GetFull_name() << "?" << endl;
+            		string answer;
+            		cin >> answer;
+            		if (answer=="д") {
+                		break;
+            		}
+            		else if (answer=="н") {
+                		student();
+            		}
+            		else cout << miss << endl;
+		}
+        }
+
     int input;
         while (true) {
-                cout << stMEnu  << endl;
+                cout << stMenu  << endl;
                 cin >> input;
                 if (input==0) {
 
@@ -110,31 +129,33 @@ void Menu::student()
                 }
                 else cout << miss << endl;
         }
-
-        //proverka
 }
-
 void Menu::addTeacher()
 {
-    //ввести нужные данные для функции (предмет + фио)
-    //данные внести в переменные
-    //отправить в функцию
-    /*
-    string name;
-    string subject;
-    Teacher objTh;
-         спросить кто вы и запихнуть в функцию.
-	
-    */
-    db.AddTeacher(objTh);
+	string name;
+   	string subject;
+   	Teacher objTh;
+	cout << "Как вас зовут ?" << endl;
+	cin >> name;
+	objTh.SetFull_name(name);
+	cout << "Какой предмет вы ведёте ?" << endl;
+	cin >> subject;
+	objTh.SetSubject(subject);
+	db.AddTeacher(objTh);
 }
 
 void Menu::addStudent()
 {
-    //создать переменные
-    //ввести данные о студенте
-    //отправить переменные в функцию
-    db.AddStudent(objSt);
+	string name;
+	string group;
+	Student objSt;
+	cout << "Как вас зовут ?" << endl;
+	cin >> name;
+	objSt.SetFull_name(name);
+	cout << "Какой номер у вашей группы ?" << endl;
+	cin >> group;
+	objSt.SetGroup(group);
+    	db.AddStudent(objSt);
 }
 
 void Menu::SearchStudent()
