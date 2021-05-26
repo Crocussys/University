@@ -7,8 +7,13 @@ Menu::Menu()
 {
     flag = -1;
 }
+Menu::Menu(char *tfn, char *sfn){
+    flag = -1;
+    Data db(tfn, sfn);
+}
 void Menu::start()
 {
+    db.Load();
 	cout << enter << endl;
 	while (true) {
 		cin >> flag;
@@ -49,96 +54,96 @@ void Menu::admin()
 	}
 }
 
-void Menu::teacher()
-{
-	string name;
-        cout << "Введите ФИО" << endl;
-        cin >> name;
-        int *arr=SearchTeacher (1,name);
-	int sizeArr=arr[0];
-	Teacher objTh;
-	for (int i=1; i<=sizeArr; i++) {
-		objTh=GetTeacherById(arr[i]);
-		while (true) {
-			cout << "Вы " << objTh.GetFull_name() << "?" << endl;
-			string answer;
-			cin >> answer;
-			if (answer=="д") {
-				break;
-			}
-			else if (answer=="н") {
-				teacher();
-			}
-			else cout << miss << endl;
-		}
-	}
-	int input;
-        while (true) {
-                cout << thMEnu << endl;
-                cin >> input;
-                if (input==0) {
+//void Menu::teacher()
+//{
+//	string name;
+//        cout << "Введите ФИО" << endl;
+//        cin >> name;
+//        int *arr=SearchTeacher (1,name);
+//	int sizeArr=arr[0];
+//	Teacher objTh;
+//	for (int i=1; i<=sizeArr; i++) {
+//		objTh=GetTeacherById(arr[i]);
+//		while (true) {
+//			cout << "Вы " << objTh.GetFull_name() << "?" << endl;
+//			string answer;
+//			cin >> answer;
+//			if (answer=="д") {
+//				break;
+//			}
+//			else if (answer=="н") {
+//				teacher();
+//			}
+//			else cout << miss << endl;
+//		}
+//	}
+//	int input;
+//        while (true) {
+//                cout << thMEnu << endl;
+//                cin >> input;
+//                if (input==0) {
 
-                }
-                else if (input==1) {
-                        cout << "До свидания" << endl;
-                        break;
-                }
-		else cout << miss << endl;
-	}
-}
+//                }
+//                else if (input==1) {
+//                        cout << "До свидания" << endl;
+//                        break;
+//                }
+//		else cout << miss << endl;
+//	}
+//}
 
-void Menu::student()
-{
-	string name;
-	cout << "Введите ФИО" << endl;
-        cin >> name;
-	int input;
-        while (true) {
-                cout << stMEnu  << endl;
-                cin >> input;
-                if (input==0) {
+//void Menu::student()
+//{
+//	string name;
+//	cout << "Введите ФИО" << endl;
+//        cin >> name;
+//	int input;
+//        while (true) {
+//                cout << stMEnu  << endl;
+//                cin >> input;
+//                if (input==0) {
 
-                }
-                else if (input==1) {
-                        cout << "До свидания" << endl;
-                        break;
-                }
-                else cout << miss << endl;
-        }
+//                }
+//                else if (input==1) {
+//                        cout << "До свидания" << endl;
+//                        break;
+//                }
+//                else cout << miss << endl;
+//        }
 
-        //proverka
-}
+//        //proverka
+//}
 
-void Menu::addTeacher()
-{
-	//ввести нужные данные для функции (предмет + фио)
-	//данные внести в переменные
-	//отправить в функцию
-	/*
-	string name;
-	string subject;
-	Teacher objTh;
-	     спросить кто вы и запихнуть в функцию.
+//void Menu::addTeacher()
+//{
+//	//ввести нужные данные для функции (предмет + фио)
+//	//данные внести в переменные
+//	//отправить в функцию
+//	/*
+//	string name;
+//	string subject;
+//	Teacher objTh;
+//	     спросить кто вы и запихнуть в функцию.
 	
-	*/
-	db.AddTeacher(objTh);
-}
+//	*/
+//	db.AddTeacher(objTh);
+//}
 
-void Menu::addStudent()
-{
-	//создать переменные
-   	//ввести данные о студенте
-	//отправить переменные в функцию
-	db.AddStudent(objSt);
-}
+//void Menu::addStudent()
+//{
+//	//создать переменные
+//   	//ввести данные о студенте
+//	//отправить переменные в функцию
+//	db.AddStudent(objSt);
+//}
 
-void Menu::SearchStudent()
-{
+//void Menu::SearchStudent()
+//{
 
-}
+//}
 
-void Menu::SearchTeacher()
-{
+//void Menu::SearchTeacher()
+//{
 
-}
+//}
 

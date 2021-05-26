@@ -10,9 +10,7 @@ int main(int argc, char *argv[])
         cout << "Недостаточно аргументов: " << argc << " из 3" << endl;
         return 1;
     }
-    Data dbs(argv[1], argv[2]);
-    dbs.Load();
-    Menu menu;
+    Menu menu(argv[1], argv[2]);
     menu.start();
     return 0;
 }
