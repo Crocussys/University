@@ -34,8 +34,12 @@ public:
     void AddStudent(Student st);
     int *SearchTeacher(int flag, string inp);
     int *SearchStudent(int flag, string inp);
+
+    // Надо реализовать. Просто вставить объект в массив по индексу.
     void ChangeTeacherById(int id, Teacher tc);
     void ChangeStudentById(int id, Student st);
+
+    // Удаление, как у меня в лабе.
     void DeleteTeacher(int id);
     void DeleteStudent(int id);
 };

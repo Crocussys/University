@@ -17,9 +17,6 @@ public:
     Teacher();
     ~Teacher();
 
-	void Load(istream& in);
-    void Save(ostream& out);
-
     void addGroup(string group);
     void removeGroup(string group);
 
