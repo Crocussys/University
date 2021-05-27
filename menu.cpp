@@ -41,12 +41,18 @@ void Menu::admin()
 			addTeacher();
 		}
 		else if (input==2) {
-			SearchStudent();
+			SearchStudentByName();
 		}
 		else if (input==3) {
-			SearchTeacher();
+			SearchTeacherByName();
 		}
 		else if (input==4) {
+			SearchStudentByGroup();
+		}
+		else if (input==5) {
+			SearchTeacherBySubject();
+		}
+		else if (input==6) {
 			cout << "До свидания" << endl;
 			break;
 		}
@@ -158,13 +164,79 @@ void Menu::addStudent()
     	db.AddStudent(objSt);
 }
 
-void Menu::SearchStudent()
+void Menu::SearchStudentByName()
 {
-
+	string name;
+	cout << "Введите имя студента" << endl;
+	cin >> name;
+	db.SearchStudent(1,name);
 }
 
-void Menu::SearchTeacher()
+void Menu::SearchTeacherByName()
 {
-
+	string name;
+	cout << "Введите имя преподавателя" << endl;
+	cin >> name;
+	db.SearchTeacher(1,name);
 }
 
+void Menu::SearchStudentByGroup()
+{
+	string group;
+	cout << "Введите группу студента" << endl;
+	cin >> group;
+	db.SearchStudent(2,group);
+}
+
+void Menu::SearchTeacherBySubject()
+{
+	string subject;
+	cout << "Введите предмет преподавателя" << endl;
+	cin >> subject;
+	db.SearchTeacher(2,subject);
+}
+
+void Menu::PrintStudent(Student objSt)
+{
+	cout << objSt.GetFull_name() << endl;
+	cout << objSt.GetGroup() << endl;
+	for (int i=0; i<objSt.GetCountSubjects(); i++) {
+		cout << i << ". " << objSt.GetSubjectById(i) << ": ";
+		for (int j=0; j<objSt.GetCountGradesById(i); j++) {
+			cout << objSt.GetGradeByIds(i,j) << " ";
+		}
+		cout << endl;
+	}
+	while (true) {
+		if (flag==0) {
+			while (true) {
+				cout << AdChangeSt << endl;
+				//сделать меню для админа
+			}
+		}
+		else if (flag==1) {
+			while (true) {
+				cout << ThChangeSt << endl;
+				//сделать меню для учителя
+			}
+		}
+		else if (flag==2) {
+			string number;
+			cout << "Для продолжения нажмите enter" << endl;
+			cin >> number;
+			break;
+		}
+		else {
+			cout << miss << endl;
+		}
+	}
+}
+
+void Menu::PrintTeacher(Teacher objTh)
+{
+	cout << objTh.GetFull_name() << endl;
+	cout << objTh.GetSubject() << endl;
+	for (int i=0; i<objTh.GetCountGroupes(); i++) {
+		cout << i << ". " << objTh.GetGroupById(i) << endl;
+	}
+}
