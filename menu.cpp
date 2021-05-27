@@ -196,6 +196,7 @@ void Menu::SearchTeacherBySubject()
 	db.SearchTeacher(2,subject);
 }
 
+<<<<<<< HEAD
 void Menu::PrintStudent(Student objSt)
 {
 	cout << objSt.GetFull_name() << endl;
@@ -240,3 +241,6 @@ void Menu::PrintTeacher(Teacher objTh)
 		cout << i << ". " << objTh.GetGroupById(i) << endl;
 	}
 }
+=======
+
+>>>>>>> 15182f8fc736309cfcaf317b03787f51a734214b

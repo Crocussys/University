@@ -26,7 +26,6 @@ public:
     void TeacherSave();
     void StudentSave();
 
-    // Надо реализовать. По сути просто вернуть объект массива по индексу [id]
     Teacher GetTeacherById(int id);
     Student GetStudentById(int id);
 
@@ -35,11 +34,9 @@ public:
     int *SearchTeacher(int flag, string inp);
     int *SearchStudent(int flag, string inp);
 
-    // Надо реализовать. Просто вставить объект в массив по индексу.
     void ChangeTeacherById(int id, Teacher tc);
     void ChangeStudentById(int id, Student st);
 
-    // Удаление, как у меня в лабе.
     void DeleteTeacher(int id);
     void DeleteStudent(int id);
 };
