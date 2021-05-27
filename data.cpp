@@ -145,11 +145,11 @@ int *Data::SearchStudent(int flag, string inp){
     return result;
 }
 void Data::DeleteTeacher(int id){
-    Teachers* temp = new Teachers[teachers_file_size];
+    Teacher* temp = new Teacher[teachers_file_size];
     for (int i = 0; i < teachers_file_size; i++){
-        temp[i] = Teachers* teachers[i];
+        temp[i] = teachers[i];
     }
-    delete [] Teachers* teachers;
+    delete [] teachers;
     teachers_file_size--;
     Teachers* teachers = new Teachers[teachers_file_size];
     for (int i = 0; i < teachers_file_size; i++){
