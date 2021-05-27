@@ -28,6 +28,7 @@ public:
 
     Teacher GetTeacherById(int id);
     Student GetStudentById(int id);
+    
 
     void AddTeacher(Teacher tc);
     void AddStudent(Student st);
