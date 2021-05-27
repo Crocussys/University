@@ -156,7 +156,7 @@ int *Data::SearchStudent(int flag, string inp){
     delete [] cash;
     return result;
 }
-void ChangeTeacherById(int id, Teacher tc){
+void Data::ChangeTeacherById(int id, Teacher tc){
     Teacher* cash = new Teacher[teachers_file_size];
     for (int i = 0; i < teachers_file_size; i++){
         cash[i] = teachers[i];
@@ -175,7 +175,7 @@ void ChangeTeacherById(int id, Teacher tc){
     TeacherSave();
 
 }
-void ChangeStudentById(int id, Student st){
+void Data::ChangeStudentById(int id, Student st){
     Student* cash = new Student[students_file_size];
     for (int i = 0; i < students_file_size; i++){
         cash[i] = students[i];
