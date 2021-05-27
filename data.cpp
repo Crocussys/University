@@ -167,7 +167,7 @@ void ChangeTeacherById(int id, Teacher tc){
     for (int i = 0; i < teachers_file_size; i++){
         if (id==i){
             teachers[i]=tc[i];
-        }esle{
+        }else{
             teachers[i] = cash[i];
         }        
     }
@@ -201,7 +201,7 @@ void Data::DeleteTeacher(int id){
     }
     delete [] teachers;
     teachers_file_size--;
-    Teachers* teachers = new Teachers[teachers_file_size];
+    teachers = new Teacher[teachers_file_size];
     for (int i = 0; i < teachers_file_size; i++){
         if (i < id){
             teachers[i] = cash[i];
