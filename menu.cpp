@@ -24,7 +24,7 @@ void Menu::start()
 	}
 	if (flag==0) admin();
 	else if (flag==1) teacher();
-	else if (flag==2) student();
+    else if (flag==2) student();
 	else cout << miss << endl;
 }
 
@@ -42,6 +42,12 @@ void Menu::admin()
 		}
 		else if (input==2) {
 			SearchStudentByName();
+            string name;
+            cout << "Введите имя студента" << endl;
+            cin >> name;
+            int *results = db.SearchStudent(1,name);
+            // менюшка
+            PrintStudent(results[0]);
 		}
 		else if (input==3) {
 			SearchTeacherByName();
