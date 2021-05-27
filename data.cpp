@@ -194,7 +194,7 @@ void ChangeStudentById(int id, Student st){
     StudentSave();
 
 }
-void Data::DeleteTeacher(Teacher tch){
+void Data::DeleteTeacher(int id){
     Teacher* cash = new Teacher[teachers_file_size];
     for (int i = 0; i < teachers_file_size; i++){
         cash[i] = teachers[i];
@@ -212,7 +212,7 @@ void Data::DeleteTeacher(Teacher tch){
     delete [] cash;
     TeacherSave();
 }
-void Data::DeleteStudent(Student std){
+void Data::DeleteStudent(int id){
    Student* cash = new Student[students_file_size];
     for (int i = 0; i < students_file_size; i++){
         cash[i] = students[i];
