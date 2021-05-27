@@ -142,7 +142,20 @@ void Menu::teacher()
                 cout << thMenu << endl;
                 cin >> input;
                 if (input==0) {
-
+			for (int i=0; i<objTh.GetCountGroupes(); i++) {
+				cout << i << ". " << objTh.GetGroupById(i) << endl;
+			}
+			cin >> input;
+			int *arr=db.SearchStudent(2, objTh.GetGroupById(input));
+			sizeArr=arr[0];
+			Student objSt;
+		    	for (int i=1; i<=sizeArr; i++) {
+		        	objSt=db.GetStudentById(arr[i]);
+				cout << arr[i] << ". " << objSt.GetFull_name() << endl;
+			}
+			cin >> input;
+			objSt=db.GetStudentById(input);
+			PrintStudent(objSt, input);
                 }
                 else if (input==1) {
                         cout << "До свидания" << endl;
@@ -298,7 +311,7 @@ void Menu::PrintStudent(Student objSt, int id)
 					}
 					int input;
 					cin >> input;
-					objSt.removeGradeById(subject, i);
+					objSt.removeGradeById(subject, id);
 					db.ChangeStudentById(id, objSt);
 					break;
                                 }
@@ -335,7 +348,7 @@ void Menu::PrintStudent(Student objSt, int id)
                                         }
                                         int input;
                                         cin >> input;
-                                        objSt.removeGradeById(subject, i);
+                                        objSt.removeGradeById(subject, id);
                                         db.ChangeStudentById(id, objSt);
 					break;
 				}
@@ -381,7 +394,12 @@ void Menu::PrintTeacher(Teacher objTh, int id)
                                         break;
                                 }
                                 else if (input==2) {
-
+					cout << "На какой предмет изменить ?" << endl;
+                                        string subject;
+                                        cin >> subject;
+                                        objTh.SetSubject(subject);
+                                        db.ChangeTeacherById(id, objTh);
+                                        break;
                                 }
                                 else if (input==3) {
 					cout << "Какую группу добавить ?" << endl;
@@ -392,6 +410,15 @@ void Menu::PrintTeacher(Teacher objTh, int id)
                                         break;
                                 }
                                 else if (input==4) {
+					cout << "Какую группу удалить ?" << endl;
+                                        for (int i=0; i<objTh.GetCountGroupes(); i++) {
+                                                cout << i << ". " << objTh.GetGroupById(i) << endl;
+                                        }
+                                        int input;
+                                        cin >> input;
+                                        objTh.removeGroup(objTh.GetGroupById(input));
+                                        db.ChangeTeacherById(id, objTh);
+                                        break;
 
                                 }
                                 else if (input==5) {
