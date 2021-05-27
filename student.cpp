@@ -212,11 +212,20 @@ istream& operator >> (istream& in, Student& st)
     }
     return in;
 }
+int Student::GetCountSubjects(){
+    return countSubjects;
+}
+string Student::GetSubjectById(int id){
+    return Subjects[id];
+}
+int Student::GetCountGradesById(int id){
+    return countGrades[id];
+}
+int Student::GetGradeByIds(int i, int j){
+    return Grades[i][j];
+}
 Student::~Student(){
     delete [] countGrades;
     delete [] Subjects;
     delete [] Grades;
-}
-int Student::GetCountSubjects(){
-	return countSubjects;
 }

@@ -12,7 +12,7 @@ Data::Data()
 Data::Data(char *tfn, char *sfn){
     teachers_file_name = tfn;
     students_file_name = sfn;
-    teachers_file.open(tfn, ios::in);
+    teachers_file.open(tfn, ios::in | ios::binary);
     if (!teachers_file){
         cout << "Ошибка открытия файла." << endl;
         throw "Error openning file";
@@ -34,7 +34,7 @@ Data::~Data(){
     delete [] students;
 }
 void Data::Load(){
-    int size;
+    int size = 0;
     teachers_file >> size;
     teachers_file_size = size;
     teachers = new Teacher[size];
@@ -71,14 +71,19 @@ void Data::StudentSave(){
 Teacher Data::GetTeacherById(int id){
     if (id <teachers_file_size){
         return teachers[id];
-        }
+    }else{
+        cout << "Неверный индекс" << endl;
+        throw "Index error";
     }
+}
 Student Data::GetStudentById(int id){
     if (id <students_file_size){
         return students[id];
-        }
+    }else{
+        cout << "Неверный индекс" << endl;
+        throw "Index error";
     }
-
+}
 
 void Data::AddTeacher(Teacher tch){
     Teacher* tech = new Teacher[teachers_file_size];

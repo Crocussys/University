@@ -26,6 +26,8 @@ public:
     string GetSubject();
     int GetCountGroupes();
 
+    string GetGroupById(int id);
+
     friend ostream& operator<<(ostream& out, Teacher& tc);
     friend istream& operator>>(istream& in, Teacher& tc);
 };

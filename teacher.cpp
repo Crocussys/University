@@ -1,3 +1,5 @@
+#include <iostream>
+#include <string>
 #include "teacher.h"
 
 Teacher::Teacher(){
@@ -98,9 +100,12 @@ istream& operator >> (istream& in, Teacher& tc)
     }
     return in;
 }
+int Teacher::GetCountGroupes(){
+    return countGroups;
+}
+string Teacher::GetGroupById(int id){
+    return Groups[id];
+}
 Teacher::~Teacher(){
 	delete[] Groups;
-}
-int Teacher::GetCountGroupes(){
-	return countGroups;
 }

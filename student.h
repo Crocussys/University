@@ -33,6 +33,10 @@ public:
 	string GetGroup();
     int GetCountSubjects();
 
+    string GetSubjectById(int id);
+    int GetCountGradesById(int id);
+    int GetGradeByIds(int i, int j);
+
     friend ostream& operator<<(ostream& out, Student& st);
     friend istream& operator>>(istream& in, Student& st);
 };

@@ -1,5 +1,6 @@
-#include "menu.h"
 #include <iostream>
+#include <string>
+#include "menu.h"
 
 using namespace std;
 
@@ -41,7 +42,6 @@ void Menu::admin()
 			addTeacher();
 		}
 		else if (input==2) {
-			SearchStudentByName();
 			 string name;
 			 cout << "Введите имя студента" << endl;
 			 cin >> name;
@@ -65,24 +65,21 @@ void Menu::admin()
 			 }
         	    	 //PrintStudent(results[0]);
 		}
-		else if (input==3) {
-			SearchTeacherByName();
+        else if (input==3) {
 			string name;
 		        cout << "Введите имя преподавателя" << endl;
 		        cin >> name;
 		        db.SearchTeacher(1,name);
 
 		}
-		else if (input==4) {
-			SearchStudentByGroup();
+        else if (input==4) {
 			string group;
 		        cout << "Введите группу студента" << endl;
 		        cin >> group;
 		        db.SearchStudent(2,group);
 
 		}
-		else if (input==5) {
-			SearchTeacherBySubject();
+        else if (input==5) {
 			string subject;
 		        cout << "Введите предмет преподавателя" << endl;
 	        	cin >> subject;
@@ -193,7 +190,7 @@ void Menu::addStudent()
 	string group;
 	Student objSt;
 	cout << "Как вас зовут ?" << endl;
-	cin >> name;
+    cin >> name;
 	objSt.SetFull_name(name);
 	cout << "Какой номер у вашей группы ?" << endl;
 	cin >> group;
