@@ -23,6 +23,7 @@ public:
 					"6-Убрать оценку\n7-Выход";
 	const string ThChangeSt = "0-Добавить оценку\n1-Убрать оценку\n2-Выход";
 	const string StChangeSt = "0-Выход";
+	const string AdChangeTh = "0-Удалить преподавателя\n1-Изменить имя\n2-Изменить предмет\n3-Добавить группу\n4-Удалить группу";
 	void addTeacher();
 	void addStudent();
 	void admin();
@@ -33,6 +34,8 @@ public:
 	void SearchTeacherByName();
 	void SearchStudentByGroup();
 	void SearchTeacherBySubject();
+	void PrintStudent(Student objSt);
+	void PrintTeacher(Teacher objTh);
 };
 
 #endif // MENU_H

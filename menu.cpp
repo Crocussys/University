@@ -42,21 +42,52 @@ void Menu::admin()
 		}
 		else if (input==2) {
 			SearchStudentByName();
-            string name;
-            cout << "Введите имя студента" << endl;
-            cin >> name;
-            int *results = db.SearchStudent(1,name);
-            // менюшка
-            PrintStudent(results[0]);
+			 string name;
+			 cout << "Введите имя студента" << endl;
+			 cin >> name;
+			 int *arr = db.SearchStudent(1,name);
+            		 int sizeArr=arr[0];
+		         Student objSt;
+        		 for (int i=1; i<=sizeArr; i++) {
+        		         objSt=db.GetStudentById(arr[i]);
+	                	 while (true) {
+                         		cout << "Вы " << objSt.GetFull_name() << "?" << endl;
+		                         string answer;
+                		         cin >> answer;
+		                         if (answer=="д") {
+                		                break;
+                         		 }
+                         		 else if (answer=="н") {
+                                 		student();
+                         		 }
+                        		 else cout << miss << endl;
+				 }
+			 }
+        	    	 //PrintStudent(results[0]);
 		}
 		else if (input==3) {
 			SearchTeacherByName();
+			string name;
+		        cout << "Введите имя преподавателя" << endl;
+		        cin >> name;
+		        db.SearchTeacher(1,name);
+
 		}
 		else if (input==4) {
 			SearchStudentByGroup();
+			string group;
+		        cout << "Введите группу студента" << endl;
+		        cin >> group;
+		        db.SearchStudent(2,group);
+
 		}
 		else if (input==5) {
 			SearchTeacherBySubject();
+			string subject;
+		        cout << "Введите предмет преподавателя" << endl;
+	        	cin >> subject;
+        		db.SearchTeacher(2,subject);
+
 		}
 		else if (input==6) {
 			cout << "До свидания" << endl;
@@ -170,39 +201,6 @@ void Menu::addStudent()
     	db.AddStudent(objSt);
 }
 
-void Menu::SearchStudentByName()
-{
-	string name;
-	cout << "Введите имя студента" << endl;
-	cin >> name;
-	db.SearchStudent(1,name);
-}
-
-void Menu::SearchTeacherByName()
-{
-	string name;
-	cout << "Введите имя преподавателя" << endl;
-	cin >> name;
-	db.SearchTeacher(1,name);
-}
-
-void Menu::SearchStudentByGroup()
-{
-	string group;
-	cout << "Введите группу студента" << endl;
-	cin >> group;
-	db.SearchStudent(2,group);
-}
-
-void Menu::SearchTeacherBySubject()
-{
-	string subject;
-	cout << "Введите предмет преподавателя" << endl;
-	cin >> subject;
-	db.SearchTeacher(2,subject);
-}
-
-<<<<<<< HEAD
 void Menu::PrintStudent(Student objSt)
 {
 	cout << objSt.GetFull_name() << endl;
@@ -246,7 +244,22 @@ void Menu::PrintTeacher(Teacher objTh)
 	for (int i=0; i<objTh.GetCountGroupes(); i++) {
 		cout << i << ". " << objTh.GetGroupById(i) << endl;
 	}
+	while (true) {
+                if (flag==0) {
+                        while (true) {
+                                cout << AdChangeTh << endl;
+                                //сделать меню для админа
+                        }
+                }
+                else if (flag==1) {
+			string number;
+                        cout << "Для продолжения нажмите enter" << endl;
+                        cin >> number;
+                        break;
+                }
+                else {
+                        cout << miss << endl;
+                }
+        }
 }
-=======
 
->>>>>>> 15182f8fc736309cfcaf317b03787f51a734214b
