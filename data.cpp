@@ -144,21 +144,21 @@ int *Data::SearchStudent(int flag, string inp){
     delete [] cash;
     return result;
 }
-void Data::DeleteStudent(int id){
-   Student* temp = new Student[students_file_size];
-    for (int i = 0; i < students_file_size; i++){
-        temp[i] = students[i];
+void Data::DeleteTeacher(int id){
+    Teachers* temp = new Teachers[teachers_file_size];
+    for (int i = 0; i < teachers_file_size; i++){
+        temp[i] = Teachers* teachers[i];
     }
-    delete [] students;
-    students_file_size--;
-    students = new Student[students_file_size];
-    for (int i = 0; i < students_file_size; i++){
+    delete [] Teachers* teachers;
+    teachers_file_size--;
+    Teachers* teachers = new Teachers[teachers_file_size];
+    for (int i = 0; i < teachers_file_size; i++){
         if (i < id){
-            students[i] = temp[i];
+            teachers_file_size[i] = temp[i];
         }else{
-            students[i] = temp[i + 1];
+            teachers_file_size[i] = temp[i + 1];
         }
     }
     delete [] temp;
-    StudentSave()();
+    TeacherSave();
 }
