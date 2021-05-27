@@ -156,26 +156,64 @@ int *Data::SearchStudent(int flag, string inp){
     delete [] cash;
     return result;
 }
-void Data::DeleteTeacher(int id){
-    Teacher* temp = new Teacher[teachers_file_size];
+void ChangeTeacherById(int id, Teacher tc){
+    Teacher* cash = new Teacher[teachers_file_size];
     for (int i = 0; i < teachers_file_size; i++){
-        temp[i] = teachers[i];
+        cash[i] = teachers[i];
+    }
+    delete [] teachers;
+    teachers_file_size++;
+    Teachers* teachers = new Teachers[teachers_file_size];
+    for (int i = 0; i < teachers_file_size; i++){
+        if (id==i){
+            teachers[i]=tc[i];
+        }esle{
+            teachers[i] = cash[i];
+        }        
+    }
+    delete [] cash;
+    TeacherSave();
+
+}
+void ChangeStudentById(int id, Student st){
+    Student* cash = new Student[students_file_size];
+    for (int i = 0; i < students_file_size; i++){
+        cash[i] = students[i];
+    }
+    delete [] students;
+    students_file_size++;
+    Student* students = new Student[students_file_size];
+    for (int i = 0; i < students_file_size; i++){
+        if (id==i){
+            students[i]=st[i];
+        }esle{
+            students[i] = cash[i];
+        }        
+    }
+    delete [] cash;
+    StudentSave();
+
+}
+void Data::DeleteTeacher(int id){
+    Teacher* cash = new Teacher[teachers_file_size];
+    for (int i = 0; i < teachers_file_size; i++){
+        cash[i] = teachers[i];
     }
     delete [] teachers;
     teachers_file_size--;
     Teachers* teachers = new Teachers[teachers_file_size];
     for (int i = 0; i < teachers_file_size; i++){
         if (i < id){
-            teachers_file_size[i] = temp[i];
+            teachers[i] = cash[i];
         }else{
-            teachers_file_size[i] = temp[i + 1];
+            teachers[i] = cash[i + 1];
         }
     }
-    delete [] temp;
+    delete [] cash;
     TeacherSave();
 }
 void Data::DeleteStudent(int id){
-   Student* temp = new Student[students_file_size];
+   Student* cach = new Student[students_file_size];
     for (int i = 0; i < students_file_size; i++){
         temp[i] = students[i];
     }
@@ -184,11 +222,11 @@ void Data::DeleteStudent(int id){
     students = new Student[students_file_size];
     for (int i = 0; i < students_file_size; i++){
         if (i < id){
-            students[i] = temp[i];
+            students[i] = cash[i];
         }else{
-            students[i] = temp[i + 1];
+            students[i] = cash[i + 1];
         }
     }
-    delete [] temp;
-    StudentSave()();
+    delete [] cash;
+    StudentSave();
 }
