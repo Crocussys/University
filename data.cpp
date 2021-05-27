@@ -162,3 +162,21 @@ void Data::DeleteTeacher(int id){
     delete [] temp;
     TeacherSave();
 }
+void Data::DeleteStudent(int id){
+   Student* temp = new Student[students_file_size];
+    for (int i = 0; i < students_file_size; i++){
+        temp[i] = students[i];
+    }
+    delete [] students;
+    students_file_size--;
+    students = new Student[students_file_size];
+    for (int i = 0; i < students_file_size; i++){
+        if (i < id){
+            students[i] = temp[i];
+        }else{
+            students[i] = temp[i + 1];
+        }
+    }
+    delete [] temp;
+    StudentSave()();
+}
