@@ -26,7 +26,6 @@ public:
     void TeacherSave();
     void StudentSave();
 
-    // Надо реализовать. По сути просто вернуть объект массива по индексу [id]
     Teacher GetTeacherById(int id);
     Student GetStudentById(int id);
 
