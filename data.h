@@ -39,7 +39,6 @@ public:
     void ChangeTeacherById(int id, Teacher tc);
     void ChangeStudentById(int id, Student st);
 
-    // Удаление, как у меня в лабе.
     void DeleteTeacher(int id);
     void DeleteStudent(int id);
 };
