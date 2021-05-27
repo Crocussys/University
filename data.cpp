@@ -163,10 +163,10 @@ void Data::ChangeTeacherById(int id, Teacher tc){
     }
     delete [] teachers;
     teachers_file_size++;
-    Teachers* teachers = new Teachers[teachers_file_size];
+    Teacher* teachers = new Teacher[teachers_file_size];
     for (int i = 0; i < teachers_file_size; i++){
         if (id==i){
-            teachers[i]=tc[i];
+            teachers[i]=tc;
         }else{
             teachers[i] = cash[i];
         }        
@@ -185,8 +185,8 @@ void Data::ChangeStudentById(int id, Student st){
     Student* students = new Student[students_file_size];
     for (int i = 0; i < students_file_size; i++){
         if (id==i){
-            students[i]=st[i];
-        }esle{
+            students[i]=st;
+        }else{
             students[i] = cash[i];
         }        
     }
