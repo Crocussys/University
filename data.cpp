@@ -212,10 +212,10 @@ void Data::DeleteTeacher(Teacher tch){
     delete [] cash;
     TeacherSave();
 }
-void Data::DeleteStudent(int id){
-   Student* cach = new Student[students_file_size];
+void Data::DeleteStudent(Student std){
+   Student* cash = new Student[students_file_size];
     for (int i = 0; i < students_file_size; i++){
-        temp[i] = students[i];
+        cash[i] = students[i];
     }
     delete [] students;
     students_file_size--;
