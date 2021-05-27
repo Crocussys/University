@@ -8,9 +8,8 @@ Menu::Menu()
 {
     flag = -1;
 }
-Menu::Menu(char *tfn, char *sfn){
+Menu::Menu(char *tfn, char *sfn) : db(tfn, sfn){
     flag = -1;
-    Data db(tfn, sfn);
 }
 void Menu::start()
 {
@@ -196,7 +195,7 @@ void Menu::student()
                 cout << stMenu  << endl;
                 cin >> input;
                 if (input==0) {
-			PrintStudent(objSt,id);
+                    PrintStudent(objSt, id);
                 }
                 else if (input==1) {
                         cout << "До свидания" << endl;

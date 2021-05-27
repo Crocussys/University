@@ -34,7 +34,7 @@ Data::~Data(){
     delete [] students;
 }
 void Data::Load(){
-    int size = 0;
+    int size;
     teachers_file >> size;
     teachers_file_size = size;
     teachers = new Teacher[size];
@@ -168,7 +168,7 @@ void Data::ChangeTeacherById(int id, Teacher tc){
     }
     delete [] teachers;
     teachers_file_size++;
-    Teacher* teachers = new Teacher[teachers_file_size];
+    teachers = new Teacher[teachers_file_size];
     for (int i = 0; i < teachers_file_size; i++){
         if (id==i){
             teachers[i]=tc;
@@ -187,7 +187,7 @@ void Data::ChangeStudentById(int id, Student st){
     }
     delete [] students;
     students_file_size++;
-    Student* students = new Student[students_file_size];
+    students = new Student[students_file_size];
     for (int i = 0; i < students_file_size; i++){
         if (id==i){
             students[i]=st;
