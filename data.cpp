@@ -68,6 +68,18 @@ void Data::StudentSave(){
     students_file.close();
     students_file.open(students_file_name, ios::in);
 }
+Teacher Data::GetTeacherById(int id){
+    if (id <teachers_file_size){
+        return teachers[id];
+        }
+    }
+Student Data::GetStudentById(int id){
+    if (id <students_file_size){
+        return students[id];
+        }
+    }
+
+
 void Data::AddTeacher(Teacher tch){
     Teacher* tech = new Teacher[teachers_file_size];
     for (int i = 0; i < teachers_file_size; i++){
