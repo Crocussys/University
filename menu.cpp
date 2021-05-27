@@ -50,40 +50,60 @@ void Menu::admin()
 		         Student objSt;
         		 for (int i=1; i<=sizeArr; i++) {
         		         objSt=db.GetStudentById(arr[i]);
-	                	 while (true) {
-                         		cout << "Вы " << objSt.GetFull_name() << "?" << endl;
-		                         string answer;
-                		         cin >> answer;
-		                         if (answer=="д") {
-                		                break;
-                         		 }
-                         		 else if (answer=="н") {
-                                 		student();
-                         		 }
-                        		 else cout << miss << endl;
-				 }
+                         		cout << i << ". " << objSt.GetFull_name() << endl;
 			 }
-        	    	 //PrintStudent(results[0]);
+			 int input;
+			 cin >> input;
+        	    	 PrintStudent(db.GetStudentById(arr[input]), input);
 		}
-        else if (input==3) {
+	        else if (input==3) {
 			string name;
 		        cout << "Введите имя преподавателя" << endl;
 		        cin >> name;
-		        db.SearchTeacher(1,name);
+		        int *arr = db.SearchTeacher(1,name);
+			int sizeArr=arr[0];
+                         Teacher objTh;
+                         for (int i=1; i<=sizeArr; i++) {
+                                 objTh=db.GetTeacherById(arr[i]);
+                                        cout << i << ". " << objTh.GetFull_name() << endl;
+                         }
+                         int input;
+                         cin >> input;
+                         PrintTeacher(db.GetTeacherById(arr[input]), input);
+
 
 		}
-        else if (input==4) {
+       		else if (input==4) {
 			string group;
 		        cout << "Введите группу студента" << endl;
 		        cin >> group;
-		        db.SearchStudent(2,group);
+		        int *arr=db.SearchStudent(2,group);
+			int sizeArr=arr[0];
+                         Student objSt;
+                         for (int i=1; i<=sizeArr; i++) {
+                                 objSt=db.GetStudentById(arr[i]);
+                                        cout << i << ". " << objSt.GetFull_name() << endl;
+                         }
+                         int input;
+                         cin >> input;
+                         PrintStudent(db.GetStudentById(arr[input]), input);
+
 
 		}
-        else if (input==5) {
+        	else if (input==5) {
 			string subject;
 		        cout << "Введите предмет преподавателя" << endl;
 	        	cin >> subject;
-        		db.SearchTeacher(2,subject);
+        		int *arr=db.SearchTeacher(2,subject);
+			int sizeArr=arr[0];
+                         Teacher objTh;
+                         for (int i=1; i<=sizeArr; i++) {
+                                 objTh=db.GetTeacherById(arr[i]);
+                                        cout << i << ". " << objTh.GetFull_name() << endl;
+                         }
+                         int input;
+                         cin >> input;
+                         PrintTeacher(db.GetTeacherById(arr[input]), input);
 
 		}
 		else if (input==6) {
@@ -139,6 +159,7 @@ void Menu::student()
         cin >> name;
 	int *arr=db.SearchStudent (1,name);
     	int sizeArr=arr[0];
+	int id;
     	Student objSt;
     	for (int i=1; i<=sizeArr; i++) {
 		objSt=db.GetStudentById(arr[i]);
@@ -147,6 +168,7 @@ void Menu::student()
             		string answer;
             		cin >> answer;
             		if (answer=="д") {
+				id=i;
                 		break;
             		}
             		else if (answer=="н") {
@@ -161,7 +183,7 @@ void Menu::student()
                 cout << stMenu  << endl;
                 cin >> input;
                 if (input==0) {
-
+			PrintStudent(objSt,id);
                 }
                 else if (input==1) {
                         cout << "До свидания" << endl;
@@ -182,6 +204,7 @@ void Menu::addTeacher()
 	cin >> subject;
 	objTh.SetSubject(subject);
 	db.AddTeacher(objTh);
+	db.TeacherSave();
 }
 
 void Menu::addStudent()
@@ -196,9 +219,10 @@ void Menu::addStudent()
 	cin >> group;
 	objSt.SetGroup(group);
     	db.AddStudent(objSt);
+	db.StudentSave();
 }
 
-void Menu::PrintStudent(Student objSt)
+void Menu::PrintStudent(Student objSt, int id)
 {
 	cout << objSt.GetFull_name() << endl;
 	cout << objSt.GetGroup() << endl;
@@ -209,54 +233,180 @@ void Menu::PrintStudent(Student objSt)
 		}
 		cout << endl;
 	}
-	while (true) {
 		if (flag==0) {
 			while (true) {
 				cout << AdChangeSt << endl;
-				//сделать меню для админа
+				int input;
+				cin >> input;
+				if (input==0) {
+					db.DeleteStudent(id);
+					break;
+				}
+				else if (input==1) {
+					cout << "На какое имя поменять ?" << endl;
+					string name;
+					cin >> name;
+					objSt.SetFull_name(name);
+					db.ChangeStudentById(id, objSt);
+					break;
+				}
+				else if (input==2) {
+					cout << "На какую группу поменять ?" << endl;
+					string group;
+					cin >> group;
+					objSt.SetGroup(group);
+					db.ChangeStudentById(id, objSt);
+					break;
+                                }
+				else if (input==3) {
+					cout << "Какой предмет добавить ?" << endl;
+					string subject;
+					cin >> subject;
+					objSt.addSubject(subject);
+					db.ChangeStudentById(id, objSt);
+					break;
+                                }
+				else if (input==4) {
+					cout << "Какой предмет удалить ?" << endl;
+					for (int i=0; i<objSt.GetCountSubjects(); i++) {
+						cout << i << ". " << objSt.GetSubjectById(i) << endl;
+					}
+					int input;
+					cin >> input;
+					objSt.removeSubject(objSt.GetSubjectById(input));
+					db.ChangeStudentById(id, objSt);
+					break;
+                                }
+				else if (input==5) {
+					int grade;
+					string subject;
+					cout << "По какому предмету добавить оценку ?" << endl;
+					cin >> subject;
+					cout << "Какую оценку добавить ?" << endl;
+					cin >> grade;
+					objSt.addGrade(subject, grade);
+					db.ChangeStudentById(id, objSt);
+					break;
+                                }
+				else if (input==6) {
+					string subject;
+					cout << "По какому предмету удалить ?" << endl;
+					cin >> subject;
+					int id = objSt.getSubjectId(subject);
+					for (int i=0; i<objSt.GetCountGradesById(id); i++) {
+						cout << i << ". " << objSt.GetGradeByIds(id, i) << endl;
+					}
+					int input;
+					cin >> input;
+					objSt.removeGradeById(subject, i);
+					db.ChangeStudentById(id, objSt);
+					break;
+                                }
+				else if (input==7) {
+					cout << "До свидания" << endl;
+		                        break;
+                                }
+				else cout << miss << endl;
 			}
 		}
 		else if (flag==1) {
 			while (true) {
 				cout << ThChangeSt << endl;
-				//сделать меню для учителя
+				int input;
+				cin >> input;
+				if (input==0) {
+					int grade;
+                                        string subject;
+                                        cout << "По какому предмету добавить оценку ?" << endl;
+                                        cin >> subject;
+                                        cout << "Какую оценку добавить ?" << endl;
+                                        cin >> grade;
+                                        objSt.addGrade(subject, grade);
+                                        db.ChangeStudentById(id, objSt);
+					break;
+				}
+				else if (input==1) {
+					string subject;
+                                        cout << "По какому предмету удалить ?" << endl;
+                                        cin >> subject;
+                                        int id = objSt.getSubjectId(subject);
+                                        for (int i=0; i<objSt.GetCountGradesById(id); i++) {
+                                                cout << i << ". " << objSt.GetGradeByIds(id, i) << endl;
+                                        }
+                                        int input;
+                                        cin >> input;
+                                        objSt.removeGradeById(subject, i);
+                                        db.ChangeStudentById(id, objSt);
+					break;
+				}
+				else if (input==2) {
+					cout << "До свидания" << endl;
+                                        break;
+				}
+				else cout << miss << endl;
 			}
 		}
 		else if (flag==2) {
 			string number;
 			cout << "Для продолжения нажмите enter" << endl;
 			cin >> number;
-			break;
 		}
 		else {
 			cout << miss << endl;
 		}
-	}
 }
 
-void Menu::PrintTeacher(Teacher objTh)
+void Menu::PrintTeacher(Teacher objTh, int id)
 {
 	cout << objTh.GetFull_name() << endl;
 	cout << objTh.GetSubject() << endl;
 	for (int i=0; i<objTh.GetCountGroupes(); i++) {
 		cout << i << ". " << objTh.GetGroupById(i) << endl;
 	}
-	while (true) {
                 if (flag==0) {
                         while (true) {
                                 cout << AdChangeTh << endl;
-                                //сделать меню для админа
+                                int input;
+				cin >> input;
+				if (input==0) {
+					db.DeleteTeacher(id);
+					break;
+				}
+				else if (input==1) {
+					cout << "На какое имя поменять ?" << endl;
+                                        string name;
+                                        cin >> name;
+                                        objTh.SetFull_name(name);
+                                        db.ChangeTeacherById(id, objTh);
+                                        break;
+                                }
+                                else if (input==2) {
+
+                                }
+                                else if (input==3) {
+					cout << "Какую группу добавить ?" << endl;
+                                        string group;
+                                        cin >> group;
+                                        objTh.addGroup(group);
+                                        db.ChangeTeacherById(id, objTh);
+                                        break;
+                                }
+                                else if (input==4) {
+
+                                }
+                                else if (input==5) {
+					cout << "До свидания" << endl;
+                                        break;
+                                }
+				else cout << miss << endl;
                         }
                 }
                 else if (flag==1) {
 			string number;
                         cout << "Для продолжения нажмите enter" << endl;
                         cin >> number;
-                        break;
                 }
                 else {
                         cout << miss << endl;
                 }
-        }
 }
-

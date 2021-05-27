@@ -16,7 +16,6 @@ private:
 	string *Subjects;
 	int **Grades;
 
-    int getSubjectId(string subject);
 public:
 	Student();
     Student(string name, string group, int count_s);
@@ -36,6 +35,7 @@ public:
     string GetSubjectById(int id);
     int GetCountGradesById(int id);
     int GetGradeByIds(int i, int j);
+    int getSubjectId(string subject);
 
     friend ostream& operator<<(ostream& out, Student& st);
     friend istream& operator>>(istream& in, Student& st);
