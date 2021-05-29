@@ -25,19 +25,16 @@ public:
     void Load();
     void TeacherSave();
     void StudentSave();
-
+    int GetCountTeachers();
+    int GetCountStudents();
     Teacher GetTeacherById(int id);
     Student GetStudentById(int id);
-    
-
     void AddTeacher(Teacher tc);
     void AddStudent(Student st);
     int *SearchTeacher(int flag, string inp);
     int *SearchStudent(int flag, string inp);
-
     void ChangeTeacherById(int id, Teacher tc);
     void ChangeStudentById(int id, Student st);
-
     void DeleteTeacher(int id);
     void DeleteStudent(int id);
 };

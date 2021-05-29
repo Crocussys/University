@@ -11,8 +11,8 @@ private:
 	int flag;
 	Data db;
 public:
-    	Menu();
-    	Menu(char *tfn, char *sfn);
+    Menu();
+    Menu(char *tfn, char *sfn);
    	const string enter = "Кем вы являетесь?\n0. Администратор\n1. Преподаватель\n2. Ученик";
 	const string adMenu = "0. Добавить студента\n1. Добавить преподавателя\n2. Просмотр студента по имени\n3. Просмотр преподавателя по имени\n"
 				"4. Просмотр студента по группе\n5. Просмотр преподавателя по предмету\n6. Выход";
@@ -34,8 +34,8 @@ public:
 	void SearchTeacherByName();
 	void SearchStudentByGroup();
 	void SearchTeacherBySubject();
-	void PrintStudent(Student objSt, int id);
-	void PrintTeacher(Teacher objTh, int id);
+    void PrintStudent(int id);
+    void PrintTeacher(int id);
 };
 
 #endif // MENU_H
