@@ -164,6 +164,7 @@ void Menu::teacher()
 {
     string name;
         cout << "Введите ФИО" << endl << "> ";
+        cin.ignore();
         getline(cin, name, '\n');
         int *arr=db.SearchTeacher (1,name);
     int sizeArr=arr[0];
@@ -215,6 +216,7 @@ void Menu::student()
 {
     string name;
     cout << "Введите ФИО" << endl << "> ";
+    cin.ignore();
         getline(cin, name, '\n');
 	int *arr=db.SearchStudent (1,name);
     	int sizeArr=arr[0];
