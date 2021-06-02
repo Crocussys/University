@@ -65,7 +65,7 @@ void Menu::admin()
                 if (input == 0) break;
                 else if (input > 0 && input <= sizeArr){
                     PrintStudent(arr[input]);
-			cout << endl;//////////////////////////////
+			cout << endl;
                     break;
                 }
                 else cout << miss << endl;
