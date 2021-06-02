@@ -13,7 +13,7 @@ Menu::Menu(char *tfn, char *sfn) : db(tfn, sfn){
 }
 void Menu::start()
 {
-	while (true) {
+	while (true) {//
         cout << enter << endl << endl << "> ";
 		cin >> flag;
 		cout << endl;
@@ -65,7 +65,7 @@ void Menu::admin()
                 if (input == 0) break;
                 else if (input > 0 && input <= sizeArr){
                     PrintStudent(arr[input]);
-			cout << endl;//////////////////////////////
+			cout << endl;
                     break;
                 }
                 else cout << miss << endl;
