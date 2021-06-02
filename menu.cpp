@@ -168,6 +168,7 @@ void Menu::teacher()
     for (int i=1; i<=sizeArr; i++) {
         Teacher objTh(db.GetTeacherById(arr[i]));
         while (true) {
+		cout << endl;
             cout << "Вы " << objTh.GetFullName() << "?" << endl <<  "> ";
             string answer;
             cin >> answer;
@@ -183,6 +184,7 @@ void Menu::teacher()
 }
 void Menu::teacher2(Teacher objTh){      // Вот здесь фигня какая-то
     int input;
+<<<<<<< HEAD
     while (true) {
         cout << thMenu << endl << endl << "> ";
         cin >> input;
@@ -198,6 +200,25 @@ void Menu::teacher2(Teacher objTh){      // Вот здесь фигня как�
                 Student objSt(db.GetStudentById(arr[i]));
                 cout << arr[i] << ". " << objSt.GetFull_name() << endl;
             }
+=======
+        while (true) {
+		cout << endl;
+                cout << thMenu << endl << endl << "> ";
+                cin >> input;
+		cout << endl;
+                if (input==0) {
+			for (int i=0; i<objTh.GetCountGroupes(); i++) {
+				cout << i << ". " << objTh.GetGroupById(i) << endl;
+			}
+			cin >> input;
+			int *arr=db.SearchStudent(2, objTh.GetGroupById(input));
+			sizeArr=arr[0];
+			Student objSt;
+		    	for (int i=1; i<=sizeArr; i++) {
+		        	objSt=db.GetStudentById(arr[i]);
+				cout << arr[i] << ". " << objSt.GetFull_name() << endl;
+			}
+>>>>>>> 89f58dbbcc47b3cb4499ada6d0a0d1a0c3f449e7
             cin >> input;
             PrintStudent(input);
         }
@@ -220,6 +241,7 @@ void Menu::student()
     	for (int i=1; i<=sizeArr; i++) {
         Student objSt=db.GetStudentById(arr[i]);
 		while (true) {
+			cout << endl;
             		cout << "Вы " << objSt.GetFull_name() << "?" << endl << "> ";
             		string answer;
             		cin >> answer;
