@@ -1,87 +1,115 @@
+/*!
+\file
+\brief Файл с описанием класса Student
+*/
 #ifndef STUDENT_H
 #define STUDENT_H
 #include <iostream>
-
 using namespace std;
-/**
-\file
-\brief Файл с описанием класса студента
+/*!
+    \brief Объект студента
+
+    Этот класс предназначен для изменения объектов типа Student
 */
 class Student
 {
 private:
 	string Full_name;
 	string Group;
-
     int countSubjects;
     int *countGrades;
-
 	string *Subjects;
-	int **Grades;
-
+    int **Grades;
 public:
-     /**
-     \public
-     *Конструктор класса Student
-     */
+    /*!
+    Конструктор класса
+    */
 	Student();
-    Student(string name, string group, int count_s);
+    /*!
+    Деструктор класса
+    */
     ~Student();
-    /**
-    \public
-    *Добавление предметов в базу данных студента
+    /*!
+    Возвращает ФИО студента
+    \return ФИО студента
     */
-    void addSubject(string subject);
-    /**
-    \public
-    *Добавление оценки студенту
+    string GetFull_name();
+    /*!
+    Возвращает группу студента
+    \return группа студента
     */
-    void addGrade(string subject, int grade);
-    /**
-    \public
-    *Удаление предмета из базы данных студента
-    */
-    void removeSubject(string subject);
-    /**
-    \public
-    *Удаление оценки студента
-    */
-    void removeGradeById(string subject, int id);
-    /**
-    \public
-    *Считывание имени студента из базы данных
-    */
-    void SetFull_name(string Full_name1);
-	string GetFull_name();
-    /**
-    \public
-    *Считывание группы студента из базы данных
-    */
-    void SetGroup(string group);
-	string GetGroup();
-    /**
-    \public
-    *Считывает количество предметов у студента
+    string GetGroup();
+    /*!
+    Возвращает количество предметов у студента
+    \return количество предметов
     */
     int GetCountSubjects();
-        string GetSubjectById(int id);
-    /**
-    \public
-    *Считывает количество оценок у студента
+    /*!
+    Возвращает id предмета по его названию
+    \param subject название предмета
+    \return id предмета или -1, если такого предмета нет
+    */
+    int GetSubjectId(string subject);
+    /*!
+    Возвращает название предмета по его id
+    \param id id предмета
+    \return название предмета
+    */
+    string GetSubjectById(int id);
+    /*!
+    Возвращает количество оценок предмета по id предмета
+    \param id id предмета
+    \return количество оценок предмета
     */
     int GetCountGradesById(int id);
-    /**
-    \public
-    *Считывает какие оценки есть у студента
+    /*!
+    Возвращает оценку по её id и id предмета
+    \param i id предмета
+    \param j id оценки
+    \return оценку
     */
     int GetGradeByIds(int i, int j);
-    /**
-    \public
-    *Считывает каким предметам обучается данный студент
+    /*!
+    Устанавливает ФИО студенту
+    \param full_name Новое ФИО студента
     */
-    int getSubjectId(string subject);
-
+    void SetFull_name(string full_name);
+    /*!
+    Устанавливает группу студенту
+    \param group Название новой группы студента
+    */
+    void SetGroup(string group);
+    /*!
+    Добавляет учебный предмет для студента
+    \param subject Название предмета
+    */
+    void AddSubject(string subject);
+    /*!
+    Удаляет учебный предмет для студента
+    \param subject Название предмета
+    */
+    void RemoveSubject(string subject);
+    /*!
+    Добавляет оценку по предмету
+    \param subject Название предмета
+    \param grade Оценка
+    */
+    void AddGrade(string subject, int grade);
+    /*!
+    Удаляет оценку по предмету и её id
+    \param subject Название предмета
+    \param id id оценки
+    */
+    void RemoveGradeById(string subject, int id);
+    /*!
+    Оператор вывода для корректной записи в базу данных
+    > Используйте оператор ввода, чтобы считывание было корректным
+    */
     friend ostream& operator<<(ostream& out, Student& st);
+    /*!
+    Оператор ввода для корректного считывания из базы данных
+    > Используйте оператор вывода, чтобы запись была корректной
+    */
     friend istream& operator>>(istream& in, Student& st);
 };
 

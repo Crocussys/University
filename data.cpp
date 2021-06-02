@@ -127,7 +127,7 @@ int *Data::SearchTeacher(int flag, string inp){
     int *cash = new int[size];
     for (int i = 0; i < size; i++){
         Teacher tc = teachers[i];
-        if (flag == 0 || (flag == 1 && tc.GetFull_name().find(inp) != string::npos) || (flag == 2 && tc.GetSubject().find(inp) != string::npos)){
+        if (flag == 0 || (flag == 1 && tc.GetFullName().find(inp) != string::npos) || (flag == 2 && tc.GetSubject().find(inp) != string::npos)){
             cash[count] = i;
             count++;
         }

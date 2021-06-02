@@ -1,6 +1,5 @@
 #include <iostream>
 #include "menu.h"
-#include "data.h"
 
 using namespace std;
 

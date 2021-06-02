@@ -8,17 +8,6 @@ Student::Student()
     Subjects = nullptr;
     Grades = nullptr;
 }
-Student::Student(string name, string group, int count_s){
-    Full_name = name;
-    Group = group;
-    countSubjects = count_s;
-    countGrades = new int[count_s];
-    Subjects = new string[count_s];
-    *Grades = new int[count_s];
-    for (int i = 0; i < count_s; i++){
-        Grades[i] = nullptr;
-    }
-}
 void Student::SetFull_name(string inp){
 	Full_name = inp;
 }
@@ -31,8 +20,8 @@ void Student::SetGroup(string inp){
 string Student::GetGroup (){
 	return Group;
 }
-void Student::addSubject(string subject){
-    if (getSubjectId(subject) != -1){
+void Student::AddSubject(string subject){
+    if (GetSubjectId(subject) != -1){
         cout << "Такой предмет уже существует" << endl;
         return;
     }
@@ -64,7 +53,7 @@ void Student::addSubject(string subject){
     delete [] cashG;
 }
 
-int Student::getSubjectId(string subject){
+int Student::GetSubjectId(string subject){
     for (int i = 0; i < countSubjects; i++){
         if(Subjects[i] == subject){
             return i;
@@ -73,8 +62,8 @@ int Student::getSubjectId(string subject){
     return -1;
 }
 
-void Student::removeSubject(string subject){
-    int id = getSubjectId(subject);
+void Student::RemoveSubject(string subject){
+    int id = GetSubjectId(subject);
     if (id == -1){
         cout << "Нет такого предмета" << endl;
         return;
@@ -114,8 +103,8 @@ void Student::removeSubject(string subject){
     delete [] cashC;
     delete [] cashG;
 }
-void Student::addGrade(string subject, int grade){
-    int id = getSubjectId(subject);
+void Student::AddGrade(string subject, int grade){
+    int id = GetSubjectId(subject);
     if (id == -1){
         cout << "Нет такого предмета" << endl;
         return;
@@ -137,8 +126,8 @@ void Student::addGrade(string subject, int grade){
     delete [] cash;
 }
 
-void Student::removeGradeById(string subject, int id){
-    int sub_id = getSubjectId(subject);
+void Student::RemoveGradeById(string subject, int id){
+    int sub_id = GetSubjectId(subject);
     if (sub_id == -1){
         cout << "Нет такого предмета" << endl;
         return;
@@ -173,6 +162,18 @@ void Student::removeGradeById(string subject, int id){
     delete [] cash;
     delete [] grades;
 }
+int Student::GetCountSubjects(){
+    return countSubjects;
+}
+string Student::GetSubjectById(int id){
+    return Subjects[id]; // НЕТ ПРОВЕРКИ id !!!!!
+}
+int Student::GetCountGradesById(int id){
+    return countGrades[id]; // НЕТ ПРОВЕРКИ id !!!!!
+}
+int Student::GetGradeByIds(int i, int j){
+    return Grades[i][j]; // НЕТ ПРОВЕРКИ id !!!!!
+}
 ostream& operator << (ostream& out, Student& st)
 {
     int count_s = st.countSubjects;
@@ -202,27 +203,15 @@ istream& operator >> (istream& in, Student& st)
     for (int i = 0; i < count_s; i++){
         getline(in, instr, '|');
         string sub = instr;
-        st.addSubject(instr);
+        st.AddSubject(instr);
         getline(in, instr, '|');
         int count_gr = stoi(instr);
         for (int j = 0; j < count_gr; j++){
             getline(in, instr, '|');
-            st.addGrade(sub, stoi(instr));
+            st.AddGrade(sub, stoi(instr));
         }
     }
     return in;
-}
-int Student::GetCountSubjects(){
-    return countSubjects;
-}
-string Student::GetSubjectById(int id){
-    return Subjects[id];
-}
-int Student::GetCountGradesById(int id){
-    return countGrades[id];
-}
-int Student::GetGradeByIds(int i, int j){
-    return Grades[i][j];
 }
 Student::~Student(){
     delete [] countGrades;
