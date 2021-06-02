@@ -52,11 +52,10 @@ void Menu::admin()
                 cout << "" << endl; //Дописать
                 continue;
             }
-            Student objSt;
 		cout << endl;
             cout << "0. Выход" << endl;
             for (int i=1; i<=sizeArr; i++) {
-                objSt=db.GetStudentById(arr[i]);
+                Student objSt = db.GetStudentById(arr[i]);
                 cout << i << ". " << objSt.GetFull_name() << endl;
 		cout << endl;
             }
@@ -220,10 +219,9 @@ void Menu::student()
         getline(cin, name, '\n');
 	int *arr=db.SearchStudent (1,name);
     	int sizeArr=arr[0];
-	int id;
-    	Student objSt;
+    int id;
     	for (int i=1; i<=sizeArr; i++) {
-		objSt=db.GetStudentById(arr[i]);
+        Student objSt=db.GetStudentById(arr[i]);
 		while (true) {
             		cout << "Вы " << objSt.GetFull_name() << "?" << endl << "> ";
             		string answer;

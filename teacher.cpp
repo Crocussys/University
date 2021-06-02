@@ -107,5 +107,5 @@ string Teacher::GetGroupById(int id){
     return Groups[id];
 }
 Teacher::~Teacher(){
-    if (countGroups != 0) delete[] Groups;
+    delete[] Groups;
 }

@@ -225,9 +225,7 @@ int Student::GetGradeByIds(int i, int j){
     return Grades[i][j];
 }
 Student::~Student(){
-    if (countSubjects != 0){
-        delete [] countGrades;
-        delete [] Subjects;
-        delete [] Grades;
-    }
+    delete [] countGrades;
+    delete [] Subjects;
+    delete [] Grades;
 }
