@@ -6,6 +6,16 @@ Teacher::Teacher(){
     CountGroups = 0;
     Groups = nullptr;
 }
+Teacher::Teacher(const Teacher &tc){
+    Full_name = tc.Full_name;
+    Subject = tc.Subject;
+    int count_g = tc.CountGroups;
+    CountGroups = count_g;
+    Groups = new string[count_g];
+    for(int i = 0; i < count_g; i++){
+        Groups[i] = tc.Groups[i];
+    }
+}
 int Teacher::GetGroupId(string group){
     for (int i = 0; i < CountGroups; i++){
         if(Groups[i] == group){
