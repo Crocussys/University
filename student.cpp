@@ -8,6 +8,23 @@ Student::Student()
     Subjects = nullptr;
     Grades = nullptr;
 }
+Student::Student(const Student &st){
+    Full_name = st.Full_name;
+    Group = st.Group;
+    int count_s = st.countSubjects;
+    countSubjects = count_s;
+    Subjects = new string[count_s];
+    countGrades = new int[count_s];
+    Grades = new int*[count_s];
+    for (int i = 0; i < count_s; i++){
+        Subjects[i] = st.Subjects[i];
+        int count_g = st.countGrades[i];
+        countGrades[i] = count_g;
+        for (int j = 0; j < count_g; j++){
+            Grades[i][j] = st.Grades[i][j];
+        }
+    }
+}
 void Student::SetFull_name(string inp){
 	Full_name = inp;
 }
