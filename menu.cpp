@@ -13,7 +13,7 @@ Menu::Menu(char *tfn, char *sfn) : db(tfn, sfn){
 }
 void Menu::start()
 {
-	while (true) {
+	while (true) {//
         cout << enter << endl << endl << "> ";
 		cin >> flag;
 		cout << endl;
