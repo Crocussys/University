@@ -39,6 +39,7 @@ private:
     void SearchTeacherBySubject();
     void PrintStudent(int id);
     void PrintTeacher(int id);
+    void teacher2(Teacher tc);
 public:
     /*!
     Конструктор класса по умолчанию

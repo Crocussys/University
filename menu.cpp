@@ -81,10 +81,9 @@ void Menu::admin()
                 cout << "" << endl; //Дописать
                 continue;
             }
-            Student objSt;
             cout << "0. Выход" << endl;
             for (int i=1; i<=sizeArr; i++) {
-                 objSt=db.GetStudentById(arr[i]);
+                 Student objSt(db.GetStudentById(arr[i]));
                  cout << i << ". " << objSt.GetFull_name() << endl;
             }
             int input;
@@ -108,10 +107,9 @@ void Menu::admin()
                 cout << "" << endl; //Дописать
                 continue;
             }
-            Teacher objTh;
             cout << "0. Выход" << endl;
             for (int i=1; i<=sizeArr; i++) {
-                 objTh=db.GetTeacherById(arr[i]);
+                 Teacher objTh(db.GetTeacherById(arr[i]));
                  cout << i << ". " << objTh.GetFullName() << endl;
             }
             int input;
@@ -135,10 +133,9 @@ void Menu::admin()
                 cout << "" << endl; //Дописать
                 continue;
             }
-            Teacher objTh;
             cout << "0. Выход" << endl;
             for (int i=1; i<=sizeArr; i++) {
-                 objTh=db.GetTeacherById(arr[i]);
+                 Teacher objTh(db.GetTeacherById(arr[i]));
                         cout << i << ". " << objTh.GetFullName() << endl;
             }
             int input;
@@ -163,55 +160,54 @@ void Menu::admin()
 void Menu::teacher()
 {
     string name;
-        cout << "Введите ФИО" << endl << "> ";
-        cin.ignore();
-        getline(cin, name, '\n');
-        int *arr=db.SearchTeacher (1,name);
+    cout << "Введите ФИО" << endl << "> ";
+    cin.ignore();
+    getline(cin, name, '\n');
+    int *arr=db.SearchTeacher (1,name);
     int sizeArr=arr[0];
-    Teacher objTh;
     for (int i=1; i<=sizeArr; i++) {
-        objTh=db.GetTeacherById(arr[i]);
+        Teacher objTh(db.GetTeacherById(arr[i]));
         while (true) {
             cout << "Вы " << objTh.GetFullName() << "?" << endl <<  "> ";
             string answer;
             cin >> answer;
             if (answer=="д") {
-                break;
+                teacher2(objTh);
             }
             else if (answer=="н") {
-                teacher();
+                break;
             }
             else cout << miss << endl;
         }
     }
+}
+void Menu::teacher2(Teacher objTh){      // Вот здесь фигня какая-то
     int input;
-        while (true) {
-                cout << thMenu << endl << endl << "> ";
-                cin >> input;
-		cout << endl;
-                if (input==0) {
-			for (int i=0; i<objTh.GetCountGroupes(); i++) {
-				cout << i << ". " << objTh.GetGroupById(i) << endl;
-			}
-			cin >> input;
-			int *arr=db.SearchStudent(2, objTh.GetGroupById(input));
-			sizeArr=arr[0];
-			Student objSt;
-		    	for (int i=1; i<=sizeArr; i++) {
-		        	objSt=db.GetStudentById(arr[i]);
-				cout << arr[i] << ". " << objSt.GetFull_name() << endl;
-			}
+    while (true) {
+        cout << thMenu << endl << endl << "> ";
+        cin >> input;
+        cout << endl;
+        if (input==0) {
+            for (int i=0; i<objTh.GetCountGroupes(); i++) {
+                cout << i << ". " << objTh.GetGroupById(i) << endl;
+            }
+            cin >> input;
+            int *arr=db.SearchStudent(2, objTh.GetGroupById(input));
+            int sizeArr=arr[0];
+            for (int i=1; i<=sizeArr; i++) {
+                Student objSt(db.GetStudentById(arr[i]));
+                cout << arr[i] << ". " << objSt.GetFull_name() << endl;
+            }
             cin >> input;
             PrintStudent(input);
-                }
-                else if (input==1) {
-                        cout << "До свидания" << endl;
-                        break;
-                }
+        }
+        else if (input==1) {
+            cout << "До свидания" << endl;
+            break;
+        }
         else cout << miss << endl;
     }
 }
-
 void Menu::student()
 {
     string name;
@@ -220,7 +216,7 @@ void Menu::student()
         getline(cin, name, '\n');
 	int *arr=db.SearchStudent (1,name);
     	int sizeArr=arr[0];
-    int id;
+    int id= 0;
     	for (int i=1; i<=sizeArr; i++) {
         Student objSt=db.GetStudentById(arr[i]);
 		while (true) {
