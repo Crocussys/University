@@ -198,34 +198,33 @@ void Menu::teacher2(Teacher objTh){      // Вот здесь фигня как�
                 Student objSt(db.GetStudentById(arr[i]));
                 cout << arr[i] << ". " << objSt.GetFull_name() << endl;
             }
-<<<<<<< HEAD
+        }
         while (true) {
-		cout << endl;
-                cout << thMenu << endl << endl << "> ";
-                cin >> input;
-		cout << endl;
-                if (input==0) {
-			for (int i=0; i<objTh.GetCountGroupes(); i++) {
-				cout << i << ". " << objTh.GetGroupById(i) << endl;
-			}
-			cin >> input;
-			int *arr=db.SearchStudent(2, objTh.GetGroupById(input));
-			sizeArr=arr[0];
-			Student objSt;
-		    	for (int i=1; i<=sizeArr; i++) {
-		        	objSt=db.GetStudentById(arr[i]);
-				cout << arr[i] << ". " << objSt.GetFull_name() << endl;
-			}
-=======
->>>>>>> 49bd366b90dba154a6c7de25b04a21824e4a8642
+            cout << endl;
+            cout << thMenu << endl << endl << "> ";
             cin >> input;
-            PrintStudent(input);
+            cout << endl;
+            if (input==0) {
+                for (int i=0; i<objTh.GetCountGroupes(); i++) {
+                    cout << i << ". " << objTh.GetGroupById(i) << endl;
+                }
+                cin >> input;
+                int *arr=db.SearchStudent(2, objTh.GetGroupById(input));
+                int sizeArr=arr[0];
+                Student objSt;
+                for (int i=1; i<=sizeArr; i++) {
+                    objSt=db.GetStudentById(arr[i]);
+                    cout << arr[i] << ". " << objSt.GetFull_name() << endl;
+                }
+                cin >> input;
+                PrintStudent(input);
+            }
+            else if (input==1) {
+                cout << "До свидания" << endl;
+                break;
+            }
+            else cout << miss << endl;
         }
-        else if (input==1) {
-            cout << "До свидания" << endl;
-            break;
-        }
-        else cout << miss << endl;
     }
 }
 void Menu::student()
