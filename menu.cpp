@@ -13,7 +13,7 @@ Menu::Menu(char *tfn, char *sfn) : db(tfn, sfn){
 }
 void Menu::start()
 {
-	while (true) {//
+	while (true) {
         cout << enter << endl << endl << "> ";
 		cin >> flag;
 		cout << endl;
@@ -40,15 +40,16 @@ void Menu::admin()
 		else if (input==1) {
 			addTeacher();
 		}
-		else if (input==2) {
+		else if (input==3) {
             string name;
             cout << "Введите имя студента" << endl <<  "> ";
-		cout << endl;
             getline(cin, name, '\n');
+	    cout << endl;
             int *arr = db.SearchStudent(1,name);
             int sizeArr=arr[0];
-            if (sizeArr == 0){
-                cout << "" << endl; //Дописать
+            if (sizeArr == 0) {
+                cout << "Вы ввели некорректное значение" << endl; //Дописать
+		cout << endl;
                 continue;
             }
 		cout << endl;
@@ -56,12 +57,11 @@ void Menu::admin()
             for (int i=1; i<=sizeArr; i++) {
                 Student objSt = db.GetStudentById(arr[i]);
                 cout << i << ". " << objSt.GetFull_name() << endl;
-		cout << endl;
             }
+		cout << endl;
             int input;
             while (true) {
                 cin >> input;
-		cout << endl;
                 if (input == 0) break;
                 else if (input > 0 && input <= sizeArr){
                     PrintStudent(arr[input]);
@@ -70,15 +70,42 @@ void Menu::admin()
                 }
                 else cout << miss << endl;
             }
+	    cout << endl;
 		}
-        else if (input==3) {
+	else if (input==2) {
+            int *arr=db.SearchStudent(0, "");
+                        int sizeArr=arr[0];
+            if (sizeArr == 0){
+                cout << "" << endl; //Дописать
+                continue;
+            }
+            cout << "0. Выход" << endl;
+            for (int i=1; i<=sizeArr; i++) {
+                 Student objSt(db.GetStudentById(arr[i]));
+                 cout << i << ". " << objSt.GetFull_name() << endl;
+            }
+            int input;
+		cout << endl;
+            while (true) {
+		cout << "> ";
+                cin >> input;
+                if (input == 0) break;
+                else if (input > 0 && input <= sizeArr){
+                    PrintStudent(arr[input]);
+                    break;
+                }
+                else cout << miss << endl;
+            }
+	    cout << endl;
+	}
+        else if (input==4) {
 			string group;
             cout << "Введите группу студента" << endl << "> ";
             getline(cin, group, '\n');
             int *arr=db.SearchStudent(2,group);
                         int sizeArr=arr[0];
             if (sizeArr == 0){
-                cout << "" << endl; //Дописать
+                cout << "Вы ввели некорректное значение" << endl; //Дописать
                 continue;
             }
             cout << "0. Выход" << endl;
@@ -97,11 +124,8 @@ void Menu::admin()
                 else cout << miss << endl;
             }
                 }
-        else if (input==4) {
-			string name;
-            cout << "Введите имя преподавателя" << endl << "> ";
-            getline(cin, name, '\n');
-            int *arr = db.SearchTeacher(1,name);
+	else if (input==5) {
+            int *arr = db.SearchTeacher(0, "");
                         int sizeArr=arr[0];
             if (sizeArr == 0){
                 cout << "" << endl; //Дописать
@@ -122,15 +146,41 @@ void Menu::admin()
                 }
                 else cout << miss << endl;
             }
+	}
+        else if (input==6) {
+			string name;
+            cout << "Введите имя преподавателя" << endl << "> ";
+            getline(cin, name, '\n');
+            int *arr = db.SearchTeacher(1,name);
+                        int sizeArr=arr[0];
+            if (sizeArr == 0){
+                cout << "Вы ввели некорректное значение" << endl; //Дописать
+                continue;
+            }
+            cout << "0. Выход" << endl;
+            for (int i=1; i<=sizeArr; i++) {
+                 Teacher objTh(db.GetTeacherById(arr[i]));
+                 cout << i << ". " << objTh.GetFullName() << endl;
+            }
+            int input;
+            while (true) {
+                cin >> input;
+                if (input == 0) break;
+                else if (input > 0 && input <= sizeArr){
+                    PrintTeacher(arr[input]);
+                    break;
                 }
-        else if (input==5) {
+                else cout << miss << endl;
+            }
+                }
+        else if (input==7) {
 			string subject;
             cout << "Введите предмет преподавателя" << endl << "> ";
             getline(cin, subject, '\n');
             int *arr=db.SearchTeacher(2,subject);
 			int sizeArr=arr[0];
             if (sizeArr == 0){
-                cout << "" << endl; //Дописать
+                cout << "Вы ввели некорректное значение" << endl; //Дописать
                 continue;
             }
             cout << "0. Выход" << endl;
@@ -149,7 +199,7 @@ void Menu::admin()
                 else cout << miss << endl;
             }
 		}
-		else if (input==6) {
+		else if (input==8) {
 			cout << "До свидания" << endl;
 			break;
 		}
@@ -384,7 +434,6 @@ void Menu::PrintStudent(int id)
                                         break;
                                 }
 				else if (input==7) {
-					cout << "До свидания" << endl;
 		                        break;
                                 }
 				else cout << miss << endl;
@@ -422,7 +471,6 @@ void Menu::PrintStudent(int id)
                                         db.ChangeStudentById(id, objSt);
 				}
 				else if (input==2) {
-					cout << "До свидания" << endl;
                                         break;
 				}
 				else cout << miss << endl;
@@ -491,7 +539,6 @@ void Menu::PrintTeacher(int id)
                                         break;
                                 }
                                 else if (input==5) {
-					cout << "До свидания" << endl;
                                         break;
                                 }
 				else cout << miss << endl;
