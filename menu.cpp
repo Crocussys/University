@@ -184,7 +184,6 @@ void Menu::teacher()
 }
 void Menu::teacher2(Teacher objTh){      // Вот здесь фигня какая-то
     int input;
-<<<<<<< HEAD
     while (true) {
         cout << thMenu << endl << endl << "> ";
         cin >> input;
@@ -200,7 +199,6 @@ void Menu::teacher2(Teacher objTh){      // Вот здесь фигня как�
                 Student objSt(db.GetStudentById(arr[i]));
                 cout << arr[i] << ". " << objSt.GetFull_name() << endl;
             }
-=======
         while (true) {
 		cout << endl;
                 cout << thMenu << endl << endl << "> ";
@@ -218,7 +216,6 @@ void Menu::teacher2(Teacher objTh){      // Вот здесь фигня как�
 		        	objSt=db.GetStudentById(arr[i]);
 				cout << arr[i] << ". " << objSt.GetFull_name() << endl;
 			}
->>>>>>> 89f58dbbcc47b3cb4499ada6d0a0d1a0c3f449e7
             cin >> input;
             PrintStudent(input);
         }
