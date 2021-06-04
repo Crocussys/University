@@ -131,9 +131,8 @@ void Student::AddGrade(string subject, int grade){
     int *cash = new int[count];
     for (int i = 0; i < count; i++)
         cash[i] = grades[i];
-    Grades[id] = nullptr;
+    delete [] Grades[id];
     delete [] grades;
-    grades = nullptr;
     count++;
     countGrades[id] = count;
     Grades[id] = new int[count];
