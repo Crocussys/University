@@ -1,0 +1,24 @@
+\doxysection{data.\+h File Reference}
+\label{data_8h}\index{data.h@{data.h}}
+
+
+Файл с описанием класса \doxyref{Data}{p.}{class_data}.  
+
+
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include \char`\"{}teacher.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}student.\+h\char`\"{}}\newline
+Include dependency graph for data.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \textbf{ Data}
+\begin{DoxyCompactList}\small\item\em Класс управления базами данных \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Файл с описанием класса \doxyref{Data}{p.}{class_data}. 
+

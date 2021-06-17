@@ -1,0 +1,267 @@
+\doxysection{Student Class Reference}
+\label{class_student}\index{Student@{Student}}
+
+
+Объект студента  
+
+
+
+
+{\ttfamily \#include $<$student.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Student} ()
+\item 
+\textbf{ $\sim$\+Student} ()
+\item 
+\textbf{ Student} (const \textbf{ Student} \&st)
+\item 
+string \textbf{ Get\+Full\+\_\+name} ()
+\item 
+string \textbf{ Get\+Group} ()
+\item 
+int \textbf{ Get\+Count\+Subjects} ()
+\item 
+int \textbf{ Get\+Subject\+Id} (string subject)
+\item 
+string \textbf{ Get\+Subject\+By\+Id} (int id)
+\item 
+int \textbf{ Get\+Count\+Grades\+By\+Id} (int id)
+\item 
+int \textbf{ Get\+Grade\+By\+Ids} (int i, int j)
+\item 
+void \textbf{ Set\+Full\+\_\+name} (string full\+\_\+name)
+\item 
+void \textbf{ Set\+Group} (string group)
+\item 
+void \textbf{ Add\+Subject} (string subject)
+\item 
+void \textbf{ Remove\+Subject} (string subject)
+\item 
+void \textbf{ Add\+Grade} (string subject, int grade)
+\item 
+void \textbf{ Remove\+Grade\+By\+Id} (string subject, int id)
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \textbf{ operator$<$$<$} (ostream \&out, \textbf{ Student} \&st)
+\item 
+istream \& \textbf{ operator$>$$>$} (istream \&in, \textbf{ Student} \&st)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Объект студента 
+
+Этот класс предназначен для изменения объектов типа \doxyref{Student}{p.}{class_student} 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_student_af9168cedbfa5565cf0b20c1a9d3f5c9d}} 
+\index{Student@{Student}!Student@{Student}}
+\index{Student@{Student}!Student@{Student}}
+\doxysubsubsection{Student()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Student\+::\+Student (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Конструктор класса \mbox{\label{class_student_a54a8ea060d6cd04222c3a2f89829f105}} 
+\index{Student@{Student}!````~Student@{$\sim$Student}}
+\index{````~Student@{$\sim$Student}!Student@{Student}}
+\doxysubsubsection{$\sim$Student()}
+{\footnotesize\ttfamily Student\+::$\sim$\+Student (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Деструктор класса \mbox{\label{class_student_a56d9de698d5a0258b31718088693a3ce}} 
+\index{Student@{Student}!Student@{Student}}
+\index{Student@{Student}!Student@{Student}}
+\doxysubsubsection{Student()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Student\+::\+Student (\begin{DoxyParamCaption}\item[{const \textbf{ Student} \&}]{st }\end{DoxyParamCaption})}
+
+Конструктор копирования класса 
+\begin{DoxyParams}{Parameters}
+{\em st} & Объект студента, который надо скопировать \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_student_a8f5367ee4ae1b5a308c1d083470f4c9e}} 
+\index{Student@{Student}!AddGrade@{AddGrade}}
+\index{AddGrade@{AddGrade}!Student@{Student}}
+\doxysubsubsection{AddGrade()}
+{\footnotesize\ttfamily void Student\+::\+Add\+Grade (\begin{DoxyParamCaption}\item[{string}]{subject,  }\item[{int}]{grade }\end{DoxyParamCaption})}
+
+Добавляет оценку по предмету 
+\begin{DoxyParams}{Parameters}
+{\em subject} & Название предмета \\
+\hline
+{\em grade} & Оценка \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_student_a8f9b5ad4543dcd8b1ae554d9fa2e667e}} 
+\index{Student@{Student}!AddSubject@{AddSubject}}
+\index{AddSubject@{AddSubject}!Student@{Student}}
+\doxysubsubsection{AddSubject()}
+{\footnotesize\ttfamily void Student\+::\+Add\+Subject (\begin{DoxyParamCaption}\item[{string}]{subject }\end{DoxyParamCaption})}
+
+Добавляет учебный предмет для студента 
+\begin{DoxyParams}{Parameters}
+{\em subject} & Название предмета \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_student_a419d78f590f99b15d6e033242bf371ef}} 
+\index{Student@{Student}!GetCountGradesById@{GetCountGradesById}}
+\index{GetCountGradesById@{GetCountGradesById}!Student@{Student}}
+\doxysubsubsection{GetCountGradesById()}
+{\footnotesize\ttfamily int Student\+::\+Get\+Count\+Grades\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+Возвращает количество оценок предмета по id предмета 
+\begin{DoxyParams}{Parameters}
+{\em id} & id предмета \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+количество оценок предмета 
+\end{DoxyReturn}
+\mbox{\label{class_student_a60a5c2caf13bb2bf3560fc2589023d0c}} 
+\index{Student@{Student}!GetCountSubjects@{GetCountSubjects}}
+\index{GetCountSubjects@{GetCountSubjects}!Student@{Student}}
+\doxysubsubsection{GetCountSubjects()}
+{\footnotesize\ttfamily int Student\+::\+Get\+Count\+Subjects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Возвращает количество предметов у студента \begin{DoxyReturn}{Returns}
+количество предметов 
+\end{DoxyReturn}
+\mbox{\label{class_student_a3ef2fafaf60ae4c98331dc45a139861c}} 
+\index{Student@{Student}!GetFull\_name@{GetFull\_name}}
+\index{GetFull\_name@{GetFull\_name}!Student@{Student}}
+\doxysubsubsection{GetFull\_name()}
+{\footnotesize\ttfamily string Student\+::\+Get\+Full\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Возвращает ФИО студента \begin{DoxyReturn}{Returns}
+ФИО студента 
+\end{DoxyReturn}
+\mbox{\label{class_student_a92af3b4938fe85c00bd63267b76f6079}} 
+\index{Student@{Student}!GetGradeByIds@{GetGradeByIds}}
+\index{GetGradeByIds@{GetGradeByIds}!Student@{Student}}
+\doxysubsubsection{GetGradeByIds()}
+{\footnotesize\ttfamily int Student\+::\+Get\+Grade\+By\+Ids (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+Возвращает оценку по её id и id предмета 
+\begin{DoxyParams}{Parameters}
+{\em i} & id предмета \\
+\hline
+{\em j} & id оценки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+оценку 
+\end{DoxyReturn}
+\mbox{\label{class_student_ab50de063b94e8f3bfaa8101b7d9bcb44}} 
+\index{Student@{Student}!GetGroup@{GetGroup}}
+\index{GetGroup@{GetGroup}!Student@{Student}}
+\doxysubsubsection{GetGroup()}
+{\footnotesize\ttfamily string Student\+::\+Get\+Group (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Возвращает группу студента \begin{DoxyReturn}{Returns}
+группа студента 
+\end{DoxyReturn}
+\mbox{\label{class_student_a8e127b8cb7e114d0f2a8ef75ef5319e4}} 
+\index{Student@{Student}!GetSubjectById@{GetSubjectById}}
+\index{GetSubjectById@{GetSubjectById}!Student@{Student}}
+\doxysubsubsection{GetSubjectById()}
+{\footnotesize\ttfamily string Student\+::\+Get\+Subject\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+Возвращает название предмета по его id 
+\begin{DoxyParams}{Parameters}
+{\em id} & id предмета \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+название предмета 
+\end{DoxyReturn}
+\mbox{\label{class_student_a309869a94e9edb3f08701624c4f629bb}} 
+\index{Student@{Student}!GetSubjectId@{GetSubjectId}}
+\index{GetSubjectId@{GetSubjectId}!Student@{Student}}
+\doxysubsubsection{GetSubjectId()}
+{\footnotesize\ttfamily int Student\+::\+Get\+Subject\+Id (\begin{DoxyParamCaption}\item[{string}]{subject }\end{DoxyParamCaption})}
+
+Возвращает id предмета по его названию 
+\begin{DoxyParams}{Parameters}
+{\em subject} & название предмета \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+id предмета или -\/1, если такого предмета нет 
+\end{DoxyReturn}
+\mbox{\label{class_student_a89cb8bfba8ffd38fb9f2ad424b630529}} 
+\index{Student@{Student}!RemoveGradeById@{RemoveGradeById}}
+\index{RemoveGradeById@{RemoveGradeById}!Student@{Student}}
+\doxysubsubsection{RemoveGradeById()}
+{\footnotesize\ttfamily void Student\+::\+Remove\+Grade\+By\+Id (\begin{DoxyParamCaption}\item[{string}]{subject,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+Удаляет оценку по предмету и её id 
+\begin{DoxyParams}{Parameters}
+{\em subject} & Название предмета \\
+\hline
+{\em id} & id оценки \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_student_a6b89c7a47f3c72d94e65989c3d880d8f}} 
+\index{Student@{Student}!RemoveSubject@{RemoveSubject}}
+\index{RemoveSubject@{RemoveSubject}!Student@{Student}}
+\doxysubsubsection{RemoveSubject()}
+{\footnotesize\ttfamily void Student\+::\+Remove\+Subject (\begin{DoxyParamCaption}\item[{string}]{subject }\end{DoxyParamCaption})}
+
+Удаляет учебный предмет для студента 
+\begin{DoxyParams}{Parameters}
+{\em subject} & Название предмета \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_student_a086f5142fd17a68716a72b79b84fac49}} 
+\index{Student@{Student}!SetFull\_name@{SetFull\_name}}
+\index{SetFull\_name@{SetFull\_name}!Student@{Student}}
+\doxysubsubsection{SetFull\_name()}
+{\footnotesize\ttfamily void Student\+::\+Set\+Full\+\_\+name (\begin{DoxyParamCaption}\item[{string}]{full\+\_\+name }\end{DoxyParamCaption})}
+
+Устанавливает ФИО студенту 
+\begin{DoxyParams}{Parameters}
+{\em full\+\_\+name} & Новое ФИО студента \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_student_a0e4fc134c369b330c44059751aeb1320}} 
+\index{Student@{Student}!SetGroup@{SetGroup}}
+\index{SetGroup@{SetGroup}!Student@{Student}}
+\doxysubsubsection{SetGroup()}
+{\footnotesize\ttfamily void Student\+::\+Set\+Group (\begin{DoxyParamCaption}\item[{string}]{group }\end{DoxyParamCaption})}
+
+Устанавливает группу студенту 
+\begin{DoxyParams}{Parameters}
+{\em group} & Название новой группы студента \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\label{class_student_aed3322ff42d058947c0872a5e02250c9}} 
+\index{Student@{Student}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Student@{Student}}
+\doxysubsubsection{operator$<$$<$}
+{\footnotesize\ttfamily ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{out,  }\item[{\textbf{ Student} \&}]{st }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Оператор вывода для корректной записи в базу данных \begin{quote}
+Используйте оператор ввода, чтобы считывание было корректным \end{quote}
+\mbox{\label{class_student_a6996afe24f4bb3d9b5fc27c6ad02545f}} 
+\index{Student@{Student}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Student@{Student}}
+\doxysubsubsection{operator$>$$>$}
+{\footnotesize\ttfamily istream\& operator$>$$>$ (\begin{DoxyParamCaption}\item[{istream \&}]{in,  }\item[{\textbf{ Student} \&}]{st }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Оператор ввода для корректного считывания из базы данных \begin{quote}
+Используйте оператор вывода, чтобы запись была корректной \end{quote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ student.\+h}\item 
+student.\+cpp\end{DoxyCompactItemize}
