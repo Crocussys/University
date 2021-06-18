@@ -102,6 +102,7 @@ void Menu::admin()
 			string group;
             cout << "Введите группу студента" << endl << "> ";
             getline(cin, group, '\n');
+	    cout << endl;
             int *arr=db.SearchStudent(2,group);
                         int sizeArr=arr[0];
             if (sizeArr == 0){
@@ -115,9 +116,11 @@ void Menu::admin()
             }
             int input;
             while (true) {
+		cout << endl << "> ";
                 cin >> input;
                 if (input == 0) break;
                 else if (input > 0 && input <= sizeArr){
+		    cout << endl;
                     PrintStudent(arr[input]);
                     break;
                 }
@@ -128,7 +131,7 @@ void Menu::admin()
             int *arr = db.SearchTeacher(0, "");
                         int sizeArr=arr[0];
             if (sizeArr == 0){
-                cout << "" << endl; //Дописать
+                cout << "Вы ввели некорректное значение" << endl; //Дописать
                 continue;
             }
             cout << "0. Выход" << endl;
@@ -138,9 +141,11 @@ void Menu::admin()
             }
             int input;
             while (true) {
+		cout << endl << "> ";
                 cin >> input;
                 if (input == 0) break;
                 else if (input > 0 && input <= sizeArr){
+		    cout << endl;
                     PrintTeacher(arr[input]);
                     break;
                 }
@@ -151,6 +156,7 @@ void Menu::admin()
 			string name;
             cout << "Введите имя преподавателя" << endl << "> ";
             getline(cin, name, '\n');
+	    cout << endl;
             int *arr = db.SearchTeacher(1,name);
                         int sizeArr=arr[0];
             if (sizeArr == 0){
@@ -164,6 +170,7 @@ void Menu::admin()
             }
             int input;
             while (true) {
+		cout << endl << "> ";
                 cin >> input;
                 if (input == 0) break;
                 else if (input > 0 && input <= sizeArr){
@@ -177,6 +184,7 @@ void Menu::admin()
 			string subject;
             cout << "Введите предмет преподавателя" << endl << "> ";
             getline(cin, subject, '\n');
+	    cout << endl;
             int *arr=db.SearchTeacher(2,subject);
 			int sizeArr=arr[0];
             if (sizeArr == 0){
@@ -190,6 +198,7 @@ void Menu::admin()
             }
             int input;
             while (true) {
+		cout << endl << "> ";
                 cin >> input;
                 if (input == 0) break;
                 else if (input > 0 && input <= sizeArr){
@@ -218,10 +227,11 @@ void Menu::teacher()
     for (int i=1; i<=sizeArr; i++) {
         Teacher objTh(db.GetTeacherById(arr[i]));
         while (true) {
-            cout << "Вы " << objTh.GetFullName() << "?" << endl <<  "> ";
+            cout << endl << "Вы " << objTh.GetFullName() << "?" << endl <<  "> ";
             string answer;
             cin >> answer;
             if (answer=="д") {
+		cout << endl;
                 teacher2(objTh);
             }
             else if (answer=="н") {
@@ -289,6 +299,7 @@ void Menu::student()
     	for (int i=1; i<=sizeArr; i++) {
         Student objSt=db.GetStudentById(arr[i]);
 		while (true) {
+			cout << endl;
             		cout << "Вы " << objSt.GetFull_name() << "?" << endl << "> ";
             		string answer;
             		cin >> answer;
