@@ -11,6 +11,8 @@ SOURCES += \
         data.cpp \
         main.cpp \
         menu.cpp \
+        menuStudent.cpp \
+        menuTeacher.cpp \
         student.cpp \
         teacher.cpp
 

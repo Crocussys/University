@@ -79,7 +79,7 @@ int Student::GetSubjectId(string subject){
     return -1;
 }
 
-void Student::RemoveSubject(string subject){
+void Student::DeleteSubject(string subject){
     int id = GetSubjectId(subject);
     if (id == -1){
         cout << "Нет такого предмета" << endl;
@@ -142,7 +142,7 @@ void Student::AddGrade(string subject, int grade){
     delete [] cash;
 }
 
-void Student::RemoveGradeById(string subject, int id){
+void Student::DeleteGradeById(string subject, int id){
     int sub_id = GetSubjectId(subject);
     if (sub_id == -1){
         cout << "Нет такого предмета" << endl;
@@ -182,13 +182,29 @@ int Student::GetCountSubjects(){
     return countSubjects;
 }
 string Student::GetSubjectById(int id){
-    return Subjects[id]; // НЕТ ПРОВЕРКИ id !!!!!
+    if (id >= 0 && id < GetCountSubjects()){
+        return Subjects[id];
+    } else {
+        cout << "Неверный индекс" << endl;
+        throw "Index error";
+    }
 }
 int Student::GetCountGradesById(int id){
-    return countGrades[id]; // НЕТ ПРОВЕРКИ id !!!!!
+    if (id >= 0 && id < GetCountSubjects()){
+        return countGrades[id];
+    } else {
+        cout << "Неверный индекс" << endl;
+        throw "Index error";
+    }
 }
 int Student::GetGradeByIds(int i, int j){
-    return Grades[i][j]; // НЕТ ПРОВЕРКИ id !!!!!
+    if (i >= 0 && i < GetCountSubjects()){
+        if (j >= 0 && j < GetCountGradesById(i)){
+            return Grades[i][j];
+        }
+    }
+    cout << "Неверный индекс" << endl;
+    throw "Index error";
 }
 ostream& operator << (ostream& out, Student& st)
 {

@@ -71,7 +71,7 @@ void Data::StudentSave(){
     students_file.open(students_file_name, ios::in);
 }
 Teacher Data::GetTeacherById(int id){
-    if (id <teachers_file_size){
+    if (id < teachers_file_size && id >= 0){
         return teachers[id];
     }else{
         cout << "Неверный индекс" << endl;
@@ -79,7 +79,7 @@ Teacher Data::GetTeacherById(int id){
     }
 }
 Student Data::GetStudentById(int id){
-    if (id <students_file_size){
+    if (id < students_file_size && id >= 0){
         return students[id];
     }else{
         cout << "Неверный индекс" << endl;

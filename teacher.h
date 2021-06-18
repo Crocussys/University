@@ -18,6 +18,7 @@ private:
     string Subject;
     string *Groups; 
     int CountGroups;
+
     int GetGroupId(string group);
 public:
     /*!
@@ -73,7 +74,7 @@ public:
     Удаляет учебную группу студентов у преподавателя
     \param group Название группы
     */
-    void RemoveGroup(string group);
+    void DeleteGroup(string group);
     /*!
     Оператор вывода для корректной записи в базу данных
     > Используйте оператор ввода, чтобы считывание было корректным

@@ -42,7 +42,7 @@ void Teacher::AddGroup(string group){
     Groups[count - 1] = group;
     delete [] cash;
 }
-void Teacher::RemoveGroup(string group){
+void Teacher::DeleteGroup(string group){
      int id = GetGroupId(group);
      if (id == -1){
          cout << "Нет такой группы" << endl;

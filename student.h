@@ -20,6 +20,8 @@ private:
     int *countGrades;
 	string *Subjects;
     int **Grades;
+
+    int GetSubjectId(string subject);
 public:
     /*!
     Конструктор класса
@@ -49,12 +51,6 @@ public:
     \return количество предметов
     */
     int GetCountSubjects();
-    /*!
-    Возвращает id предмета по его названию
-    \param subject название предмета
-    \return id предмета или -1, если такого предмета нет
-    */
-    int GetSubjectId(string subject);
     /*!
     Возвращает название предмета по его id
     \param id id предмета
@@ -93,7 +89,7 @@ public:
     Удаляет учебный предмет для студента
     \param subject Название предмета
     */
-    void RemoveSubject(string subject);
+    void DeleteSubject(string subject);
     /*!
     Добавляет оценку по предмету
     \param subject Название предмета
@@ -105,7 +101,7 @@ public:
     \param subject Название предмета
     \param id id оценки
     */
-    void RemoveGradeById(string subject, int id);
+    void DeleteGradeById(string subject, int id);
     /*!
     Оператор вывода для корректной записи в базу данных
     > Используйте оператор ввода, чтобы считывание было корректным
