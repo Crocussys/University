@@ -1,14 +1,5 @@
 #include "data.h"
 
-Data::Data()
-{
-    teachers = nullptr;
-    teachers_file_name = nullptr;
-    teachers_file_size = -1;
-    students = nullptr;
-    students_file_name = nullptr;
-    students_file_size = -1;
-}
 Data::Data(char *tfn, char *sfn){
     teachers_file_name = tfn;
     students_file_name = sfn;

@@ -11,6 +11,7 @@ void Menu::EnterTeacher()
     getline(cin, name, '\n');
     int *arr = db.SearchTeacher (1,name);
     int sizeArr = arr[0];
+    bool flag = false;
     for (int i = 1; i <= sizeArr; i++) {
         int id = arr[i];
         class Teacher objTh(db.GetTeacherById(id));
@@ -20,12 +21,15 @@ void Menu::EnterTeacher()
             cin >> answer;
             if (answer == "д") {
                 Teacher(id);
+                flag = true;
+                break;
             }
             else if (answer == "н") {
                 break;
             }
             else cout << miss << endl;
         }
+        if (flag) break;
     }
 }
 
@@ -83,8 +87,9 @@ bool Menu::SearchTeacher(int flag){
     int *arr = db.SearchTeacher(flag, inputStr);
     int sizeArr = arr[0];
     if (sizeArr == 0){
-        cout << "Вы ввели некорректное значение" << endl;
-        return false;
+        cout << "Ничего не найдено" << endl;
+        cout << endl;
+        return true;
     }
     cout << "0. Выход" << endl;
     for (int i = 1; i <= sizeArr; i++) {

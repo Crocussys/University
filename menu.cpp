@@ -3,10 +3,6 @@
 
 using namespace std;
 
-Menu::Menu()
-{
-    flag = -1;
-}
 Menu::Menu(char *tfn, char *sfn) : db(tfn, sfn){
     flag = -1;
     db.Load();

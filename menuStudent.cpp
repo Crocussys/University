@@ -11,6 +11,7 @@ void Menu::EnterStudent()
     getline(cin, name, '\n');
     int *arr = db.SearchStudent (1,name);
     int sizeArr = arr[0];
+    bool flag = false;
     for (int i = 1; i <= sizeArr; i++) {
         int id = arr[i];
         class Student objSt=db.GetStudentById(id);
@@ -20,6 +21,7 @@ void Menu::EnterStudent()
             cin >> answer;
             if (answer == "д") {
                 Student(id);
+                flag = true;
                 break;
             }
             else if (answer == "н") {
@@ -27,6 +29,7 @@ void Menu::EnterStudent()
             }
             else cout << miss << endl;
         }
+        if (flag) break;
     }
 
 }
@@ -85,9 +88,9 @@ bool Menu::SearchStudent(int flag){
     int *arr = db.SearchStudent(flag ,inputStr);
     int sizeArr = arr[0];
     if (sizeArr == 0) {
-        cout << "Вы ввели некорректное значение" << endl;
+        cout << "Ничего не найдено" << endl;
         cout << endl;
-        return false;
+        return true;
     }
     cout << endl;
     cout << "0. Выход" << endl;
