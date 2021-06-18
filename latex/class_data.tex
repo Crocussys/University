@@ -1,4 +1,4 @@
-\doxysection{Data Class Reference}
+\hypertarget{class_data}{}\doxysection{Класс Data}
 \label{class_data}\index{Data@{Data}}
 
 
@@ -9,281 +9,269 @@
 
 {\ttfamily \#include $<$data.\+h$>$}
 
-\doxysubsection*{Public Member Functions}
+\doxysubsection*{Открытые члены}
 \begin{DoxyCompactItemize}
 \item 
-\textbf{ Data} ()
+\mbox{\hyperlink{class_data_a02f2f3a708c3c1953d48b61372455626}{Data}} (char $\ast$tfn, char $\ast$sfn)
 \item 
-\textbf{ $\sim$\+Data} ()
+\mbox{\hyperlink{class_data_aab31956423290f0d62dcca47ab4d16dd}{$\sim$\+Data}} ()
 \item 
-\textbf{ Data} (char $\ast$tfn, char $\ast$sfn)
+void \mbox{\hyperlink{class_data_a1a369d516faf86551865f130f96c1d13}{Load}} ()
 \item 
-void \textbf{ Load} ()
+void \mbox{\hyperlink{class_data_a4d1787a435e8ec284aa9facc927d8def}{Teacher\+Save}} ()
 \item 
-void \textbf{ Teacher\+Save} ()
+void \mbox{\hyperlink{class_data_a174cc1f5916197be45339c235f022a56}{Student\+Save}} ()
 \item 
-void \textbf{ Student\+Save} ()
+int \mbox{\hyperlink{class_data_a0507ff4876cd08ecd47e6df29e69035d}{Get\+Count\+Teachers}} ()
 \item 
-int \textbf{ Get\+Count\+Teachers} ()
+int \mbox{\hyperlink{class_data_a633e3e8ec838ddc98e1a2a91f50c3e9b}{Get\+Count\+Students}} ()
 \item 
-int \textbf{ Get\+Count\+Students} ()
+\mbox{\hyperlink{class_teacher}{Teacher}} \mbox{\hyperlink{class_data_a453152e6f2bf83930d3a4e2b939011f6}{Get\+Teacher\+By\+Id}} (int id)
 \item 
-\textbf{ Teacher} \textbf{ Get\+Teacher\+By\+Id} (int id)
+\mbox{\hyperlink{class_student}{Student}} \mbox{\hyperlink{class_data_a4d1d55938ce770f50d14ee5a27575c6a}{Get\+Student\+By\+Id}} (int id)
 \item 
-\textbf{ Student} \textbf{ Get\+Student\+By\+Id} (int id)
+void \mbox{\hyperlink{class_data_a6dba3834056ccf02459c36a43229be33}{Add\+Teacher}} (\mbox{\hyperlink{class_teacher}{Teacher}} tc)
 \item 
-void \textbf{ Add\+Teacher} (\textbf{ Teacher} tc)
+void \mbox{\hyperlink{class_data_a82ed020df421b62aeb8137de0d19c3ae}{Add\+Student}} (\mbox{\hyperlink{class_student}{Student}} st)
 \item 
-void \textbf{ Add\+Student} (\textbf{ Student} st)
+int $\ast$ \mbox{\hyperlink{class_data_a39d89653770a8e6526de702d08c57846}{Search\+Teacher}} (int flag, string inp)
 \item 
-int $\ast$ \textbf{ Search\+Teacher} (int flag, string inp)
+int $\ast$ \mbox{\hyperlink{class_data_a82f45ec686a1d7e676f19f17aeb8ccb4}{Search\+Student}} (int flag, string inp)
 \item 
-int $\ast$ \textbf{ Search\+Student} (int flag, string inp)
+void \mbox{\hyperlink{class_data_a3dec2a55771ccd36e4a483e36dd34b5a}{Change\+Teacher\+By\+Id}} (int id, \mbox{\hyperlink{class_teacher}{Teacher}} tc)
 \item 
-void \textbf{ Change\+Teacher\+By\+Id} (int id, \textbf{ Teacher} tc)
+void \mbox{\hyperlink{class_data_aa46d00113ff4960dfbe93ac42536174e}{Change\+Student\+By\+Id}} (int id, \mbox{\hyperlink{class_student}{Student}} st)
 \item 
-void \textbf{ Change\+Student\+By\+Id} (int id, \textbf{ Student} st)
+void \mbox{\hyperlink{class_data_a8b195e4de8bbf89635d691dd5d806d51}{Delete\+Teacher}} (int id)
 \item 
-void \textbf{ Delete\+Teacher} (int id)
-\item 
-void \textbf{ Delete\+Student} (int id)
+void \mbox{\hyperlink{class_data_a480c8a98407ab3c0cf7db6955e0712dd}{Delete\+Student}} (int id)
 \end{DoxyCompactItemize}
 
 
-\doxysubsection{Detailed Description}
+\doxysubsection{Подробное описание}
 Класс управления базами данных 
 
 Позволяет изменять базы данных, загружать их из файла или сохранять изменения в тот же файл 
 
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\label{class_data_af11f741cb7f587e2e495452a8905a22a}} 
+\doxysubsection{Конструктор(ы)}
+\mbox{\Hypertarget{class_data_a02f2f3a708c3c1953d48b61372455626}\label{class_data_a02f2f3a708c3c1953d48b61372455626}} 
 \index{Data@{Data}!Data@{Data}}
 \index{Data@{Data}!Data@{Data}}
-\doxysubsubsection{Data()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily Data\+::\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-Конструктор класса по умолчанию \begin{quote}
-Рекомендуется не использовать \end{quote}
-\mbox{\label{class_data_aab31956423290f0d62dcca47ab4d16dd}} 
-\index{Data@{Data}!````~Data@{$\sim$Data}}
-\index{````~Data@{$\sim$Data}!Data@{Data}}
-\doxysubsubsection{$\sim$Data()}
-{\footnotesize\ttfamily Data\+::$\sim$\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-Деструктор класса \mbox{\label{class_data_a02f2f3a708c3c1953d48b61372455626}} 
-\index{Data@{Data}!Data@{Data}}
-\index{Data@{Data}!Data@{Data}}
-\doxysubsubsection{Data()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{Data()}{Data()}}
 {\footnotesize\ttfamily Data\+::\+Data (\begin{DoxyParamCaption}\item[{char $\ast$}]{tfn,  }\item[{char $\ast$}]{sfn }\end{DoxyParamCaption})}
 
-Конструктор класса по умолчанию \begin{quote}
-Рекомендуется использовать этот конструктор \end{quote}
-
-\begin{DoxyParams}{Parameters}
+Конструктор класса 
+\begin{DoxyParams}{Аргументы}
 {\em tfn} & Путь к файлу базы данных преподавателей \\
 \hline
 {\em sfn} & Путь к файлу базы данных студентов \\
 \hline
 \end{DoxyParams}
 
-\begin{DoxyExceptions}{Exceptions}
+\begin{DoxyExceptions}{Исключения}
 {\em Error} & openning file \\
 \hline
 \end{DoxyExceptions}
+\mbox{\Hypertarget{class_data_aab31956423290f0d62dcca47ab4d16dd}\label{class_data_aab31956423290f0d62dcca47ab4d16dd}} 
+\index{Data@{Data}!````~Data@{$\sim$Data}}
+\index{````~Data@{$\sim$Data}!Data@{Data}}
+\doxysubsubsection{\texorpdfstring{$\sim$Data()}{~Data()}}
+{\footnotesize\ttfamily Data\+::$\sim$\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+Деструктор класса 
 
-\doxysubsection{Member Function Documentation}
-\mbox{\label{class_data_a82ed020df421b62aeb8137de0d19c3ae}} 
+\doxysubsection{Методы}
+\mbox{\Hypertarget{class_data_a82ed020df421b62aeb8137de0d19c3ae}\label{class_data_a82ed020df421b62aeb8137de0d19c3ae}} 
 \index{Data@{Data}!AddStudent@{AddStudent}}
 \index{AddStudent@{AddStudent}!Data@{Data}}
-\doxysubsubsection{AddStudent()}
-{\footnotesize\ttfamily void Data\+::\+Add\+Student (\begin{DoxyParamCaption}\item[{\textbf{ Student}}]{st }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{AddStudent()}{AddStudent()}}
+{\footnotesize\ttfamily void Data\+::\+Add\+Student (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_student}{Student}}}]{st }\end{DoxyParamCaption})}
 
 Добавляет студента в базу данных 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Аргументы}
 {\em st} & Объект студента, которого надо добавить в базу \\
 \hline
 \end{DoxyParams}
-\mbox{\label{class_data_a6dba3834056ccf02459c36a43229be33}} 
+\mbox{\Hypertarget{class_data_a6dba3834056ccf02459c36a43229be33}\label{class_data_a6dba3834056ccf02459c36a43229be33}} 
 \index{Data@{Data}!AddTeacher@{AddTeacher}}
 \index{AddTeacher@{AddTeacher}!Data@{Data}}
-\doxysubsubsection{AddTeacher()}
-{\footnotesize\ttfamily void Data\+::\+Add\+Teacher (\begin{DoxyParamCaption}\item[{\textbf{ Teacher}}]{tc }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{AddTeacher()}{AddTeacher()}}
+{\footnotesize\ttfamily void Data\+::\+Add\+Teacher (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_teacher}{Teacher}}}]{tc }\end{DoxyParamCaption})}
 
 Добавляет преподавателя в базу данных 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Аргументы}
 {\em tc} & Объект преподавателя, которого надо добавить в базу \\
 \hline
 \end{DoxyParams}
-\mbox{\label{class_data_aa46d00113ff4960dfbe93ac42536174e}} 
+\mbox{\Hypertarget{class_data_aa46d00113ff4960dfbe93ac42536174e}\label{class_data_aa46d00113ff4960dfbe93ac42536174e}} 
 \index{Data@{Data}!ChangeStudentById@{ChangeStudentById}}
 \index{ChangeStudentById@{ChangeStudentById}!Data@{Data}}
-\doxysubsubsection{ChangeStudentById()}
-{\footnotesize\ttfamily void Data\+::\+Change\+Student\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{\textbf{ Student}}]{st }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{ChangeStudentById()}{ChangeStudentById()}}
+{\footnotesize\ttfamily void Data\+::\+Change\+Student\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{\mbox{\hyperlink{class_student}{Student}}}]{st }\end{DoxyParamCaption})}
 
 Изменяет базу данных студентов 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Аргументы}
 {\em id} & id -\/ индекс массива, относящийся к элементу, который следует заменить \\
 \hline
 {\em st} & Объект студента, на который надо заменить элемент \\
 \hline
 \end{DoxyParams}
-\mbox{\label{class_data_a3dec2a55771ccd36e4a483e36dd34b5a}} 
+\mbox{\Hypertarget{class_data_a3dec2a55771ccd36e4a483e36dd34b5a}\label{class_data_a3dec2a55771ccd36e4a483e36dd34b5a}} 
 \index{Data@{Data}!ChangeTeacherById@{ChangeTeacherById}}
 \index{ChangeTeacherById@{ChangeTeacherById}!Data@{Data}}
-\doxysubsubsection{ChangeTeacherById()}
-{\footnotesize\ttfamily void Data\+::\+Change\+Teacher\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{\textbf{ Teacher}}]{tc }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{ChangeTeacherById()}{ChangeTeacherById()}}
+{\footnotesize\ttfamily void Data\+::\+Change\+Teacher\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{\mbox{\hyperlink{class_teacher}{Teacher}}}]{tc }\end{DoxyParamCaption})}
 
 Изменяет базу данных преподавателей 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Аргументы}
 {\em id} & id -\/ индекс массива, относящийся к элементу, который следует заменить \\
 \hline
 {\em tc} & Объект преподавателя, на который надо заменить элемент \\
 \hline
 \end{DoxyParams}
-\mbox{\label{class_data_a480c8a98407ab3c0cf7db6955e0712dd}} 
+\mbox{\Hypertarget{class_data_a480c8a98407ab3c0cf7db6955e0712dd}\label{class_data_a480c8a98407ab3c0cf7db6955e0712dd}} 
 \index{Data@{Data}!DeleteStudent@{DeleteStudent}}
 \index{DeleteStudent@{DeleteStudent}!Data@{Data}}
-\doxysubsubsection{DeleteStudent()}
+\doxysubsubsection{\texorpdfstring{DeleteStudent()}{DeleteStudent()}}
 {\footnotesize\ttfamily void Data\+::\+Delete\+Student (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
 
 Удаляет студента из базы данных 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Аргументы}
 {\em id} & id -\/ индекс массива, относящийся к элементу, который следует удалить \\
 \hline
 \end{DoxyParams}
-\mbox{\label{class_data_a8b195e4de8bbf89635d691dd5d806d51}} 
+\mbox{\Hypertarget{class_data_a8b195e4de8bbf89635d691dd5d806d51}\label{class_data_a8b195e4de8bbf89635d691dd5d806d51}} 
 \index{Data@{Data}!DeleteTeacher@{DeleteTeacher}}
 \index{DeleteTeacher@{DeleteTeacher}!Data@{Data}}
-\doxysubsubsection{DeleteTeacher()}
+\doxysubsubsection{\texorpdfstring{DeleteTeacher()}{DeleteTeacher()}}
 {\footnotesize\ttfamily void Data\+::\+Delete\+Teacher (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
 
 Удаляет преподавателя из базы данных 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Аргументы}
 {\em id} & id -\/ индекс массива, относящийся к элементу, который следует удалить \\
 \hline
 \end{DoxyParams}
-\mbox{\label{class_data_a633e3e8ec838ddc98e1a2a91f50c3e9b}} 
+\mbox{\Hypertarget{class_data_a633e3e8ec838ddc98e1a2a91f50c3e9b}\label{class_data_a633e3e8ec838ddc98e1a2a91f50c3e9b}} 
 \index{Data@{Data}!GetCountStudents@{GetCountStudents}}
 \index{GetCountStudents@{GetCountStudents}!Data@{Data}}
-\doxysubsubsection{GetCountStudents()}
+\doxysubsubsection{\texorpdfstring{GetCountStudents()}{GetCountStudents()}}
 {\footnotesize\ttfamily int Data\+::\+Get\+Count\+Students (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Возвращает количество студентов в базе данных \begin{DoxyReturn}{Returns}
+Возвращает количество студентов в базе данных \begin{DoxyReturn}{Возвращает}
 Количество студентов в базе данных 
 \end{DoxyReturn}
-\mbox{\label{class_data_a0507ff4876cd08ecd47e6df29e69035d}} 
+\mbox{\Hypertarget{class_data_a0507ff4876cd08ecd47e6df29e69035d}\label{class_data_a0507ff4876cd08ecd47e6df29e69035d}} 
 \index{Data@{Data}!GetCountTeachers@{GetCountTeachers}}
 \index{GetCountTeachers@{GetCountTeachers}!Data@{Data}}
-\doxysubsubsection{GetCountTeachers()}
+\doxysubsubsection{\texorpdfstring{GetCountTeachers()}{GetCountTeachers()}}
 {\footnotesize\ttfamily int Data\+::\+Get\+Count\+Teachers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Возвращает количество преподавателей в базе данных \begin{DoxyReturn}{Returns}
+Возвращает количество преподавателей в базе данных \begin{DoxyReturn}{Возвращает}
 Количество преподавателей в базе данных 
 \end{DoxyReturn}
-\mbox{\label{class_data_a4d1d55938ce770f50d14ee5a27575c6a}} 
+\mbox{\Hypertarget{class_data_a4d1d55938ce770f50d14ee5a27575c6a}\label{class_data_a4d1d55938ce770f50d14ee5a27575c6a}} 
 \index{Data@{Data}!GetStudentById@{GetStudentById}}
 \index{GetStudentById@{GetStudentById}!Data@{Data}}
-\doxysubsubsection{GetStudentById()}
-{\footnotesize\ttfamily \textbf{ Student} Data\+::\+Get\+Student\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{GetStudentById()}{GetStudentById()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_student}{Student}} Data\+::\+Get\+Student\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
 
 Возвращает объект студента по id (индексу массива) 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Аргументы}
 {\em id} & id -\/ индекс массива \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Возвращает}
 Объект студента 
 \end{DoxyReturn}
 
-\begin{DoxyExceptions}{Exceptions}
+\begin{DoxyExceptions}{Исключения}
 {\em Index} & error \\
 \hline
 \end{DoxyExceptions}
-\mbox{\label{class_data_a453152e6f2bf83930d3a4e2b939011f6}} 
+\mbox{\Hypertarget{class_data_a453152e6f2bf83930d3a4e2b939011f6}\label{class_data_a453152e6f2bf83930d3a4e2b939011f6}} 
 \index{Data@{Data}!GetTeacherById@{GetTeacherById}}
 \index{GetTeacherById@{GetTeacherById}!Data@{Data}}
-\doxysubsubsection{GetTeacherById()}
-{\footnotesize\ttfamily \textbf{ Teacher} Data\+::\+Get\+Teacher\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{GetTeacherById()}{GetTeacherById()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_teacher}{Teacher}} Data\+::\+Get\+Teacher\+By\+Id (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
 
 Возвращает объект преподавателя по id (индексу массива) 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Аргументы}
 {\em id} & id -\/ индекс массива \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Возвращает}
 Объект преподавателя 
 \end{DoxyReturn}
 
-\begin{DoxyExceptions}{Exceptions}
+\begin{DoxyExceptions}{Исключения}
 {\em Index} & error \\
 \hline
 \end{DoxyExceptions}
-\mbox{\label{class_data_a1a369d516faf86551865f130f96c1d13}} 
+\mbox{\Hypertarget{class_data_a1a369d516faf86551865f130f96c1d13}\label{class_data_a1a369d516faf86551865f130f96c1d13}} 
 \index{Data@{Data}!Load@{Load}}
 \index{Load@{Load}!Data@{Data}}
-\doxysubsubsection{Load()}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
 {\footnotesize\ttfamily void Data\+::\+Load (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Загружает базы данных из указанных файлов. \begin{quote}
 Рекомендуется использовать сразу после инициализации класса \end{quote}
-\mbox{\label{class_data_a82f45ec686a1d7e676f19f17aeb8ccb4}} 
+\mbox{\Hypertarget{class_data_a82f45ec686a1d7e676f19f17aeb8ccb4}\label{class_data_a82f45ec686a1d7e676f19f17aeb8ccb4}} 
 \index{Data@{Data}!SearchStudent@{SearchStudent}}
 \index{SearchStudent@{SearchStudent}!Data@{Data}}
-\doxysubsubsection{SearchStudent()}
+\doxysubsubsection{\texorpdfstring{SearchStudent()}{SearchStudent()}}
 {\footnotesize\ttfamily int $\ast$ Data\+::\+Search\+Student (\begin{DoxyParamCaption}\item[{int}]{flag,  }\item[{string}]{inp }\end{DoxyParamCaption})}
 
 Ищет студента в базе данных 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Аргументы}
 {\em flag} & 0 -\/ вся база данных; 1 -\/ поиск по имени; 2 -\/ поиск по группе \\
 \hline
 {\em inp} & Ввод для поиска (для flag = 0 можно передать пустую строку) \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Возвращает}
 Массив, первый элемент которого -\/ количество последующих элементов, а далее индексы массива базы данных, элементы которых удовлетворяют условиям поиска. 
 \end{DoxyReturn}
 
-\begin{DoxyExceptions}{Exceptions}
+\begin{DoxyExceptions}{Исключения}
 {\em Error} & flag \\
 \hline
 \end{DoxyExceptions}
-\mbox{\label{class_data_a39d89653770a8e6526de702d08c57846}} 
+\mbox{\Hypertarget{class_data_a39d89653770a8e6526de702d08c57846}\label{class_data_a39d89653770a8e6526de702d08c57846}} 
 \index{Data@{Data}!SearchTeacher@{SearchTeacher}}
 \index{SearchTeacher@{SearchTeacher}!Data@{Data}}
-\doxysubsubsection{SearchTeacher()}
+\doxysubsubsection{\texorpdfstring{SearchTeacher()}{SearchTeacher()}}
 {\footnotesize\ttfamily int $\ast$ Data\+::\+Search\+Teacher (\begin{DoxyParamCaption}\item[{int}]{flag,  }\item[{string}]{inp }\end{DoxyParamCaption})}
 
 Ищет преподавателя в базе данных 
-\begin{DoxyParams}{Parameters}
+\begin{DoxyParams}{Аргументы}
 {\em flag} & 0 -\/ вся база данных; 1 -\/ поиск по имени; 2 -\/ поиск по предмету \\
 \hline
 {\em inp} & Ввод для поиска (для flag = 0 можно передать пустую строку) \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+\begin{DoxyReturn}{Возвращает}
 Массив, первый элемент которого -\/ количество последующих элементов, а далее индексы массива базы данных, элементы которых удовлетворяют условиям поиска. 
 \end{DoxyReturn}
 
-\begin{DoxyExceptions}{Exceptions}
+\begin{DoxyExceptions}{Исключения}
 {\em Error} & flag \\
 \hline
 \end{DoxyExceptions}
-\mbox{\label{class_data_a174cc1f5916197be45339c235f022a56}} 
+\mbox{\Hypertarget{class_data_a174cc1f5916197be45339c235f022a56}\label{class_data_a174cc1f5916197be45339c235f022a56}} 
 \index{Data@{Data}!StudentSave@{StudentSave}}
 \index{StudentSave@{StudentSave}!Data@{Data}}
-\doxysubsubsection{StudentSave()}
+\doxysubsubsection{\texorpdfstring{StudentSave()}{StudentSave()}}
 {\footnotesize\ttfamily void Data\+::\+Student\+Save (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Сохраняет изменения в файле для базы данных студентов \mbox{\label{class_data_a4d1787a435e8ec284aa9facc927d8def}} 
+Сохраняет изменения в файле для базы данных студентов \mbox{\Hypertarget{class_data_a4d1787a435e8ec284aa9facc927d8def}\label{class_data_a4d1787a435e8ec284aa9facc927d8def}} 
 \index{Data@{Data}!TeacherSave@{TeacherSave}}
 \index{TeacherSave@{TeacherSave}!Data@{Data}}
-\doxysubsubsection{TeacherSave()}
+\doxysubsubsection{\texorpdfstring{TeacherSave()}{TeacherSave()}}
 {\footnotesize\ttfamily void Data\+::\+Teacher\+Save (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Сохраняет изменения в файле для базы данных преподавателей 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
 \item 
-\textbf{ data.\+h}\item 
+\mbox{\hyperlink{data_8h}{data.\+h}}\item 
 data.\+cpp\end{DoxyCompactItemize}

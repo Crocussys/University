@@ -1,6 +1,12 @@
 var searchData=
 [
-  ['removegradebyid_85',['RemoveGradeById',['../class_student.html#a89cb8bfba8ffd38fb9f2ad424b630529',1,'Student']]],
-  ['removegroup_86',['RemoveGroup',['../class_teacher.html#a913ba8d4448a792d7a57f68ded70c42f',1,'Teacher']]],
-  ['removesubject_87',['RemoveSubject',['../class_student.html#a6b89c7a47f3c72d94e65989c3d880d8f',1,'Student']]]
+  ['searchstudent_86',['SearchStudent',['../class_data.html#a82f45ec686a1d7e676f19f17aeb8ccb4',1,'Data']]],
+  ['searchteacher_87',['SearchTeacher',['../class_data.html#a39d89653770a8e6526de702d08c57846',1,'Data']]],
+  ['setfull_5fname_88',['SetFull_name',['../class_student.html#a086f5142fd17a68716a72b79b84fac49',1,'Student']]],
+  ['setfullname_89',['SetFullName',['../class_teacher.html#a90a3a843020f2630a857136961f5c1b3',1,'Teacher']]],
+  ['setgroup_90',['SetGroup',['../class_student.html#a0e4fc134c369b330c44059751aeb1320',1,'Student']]],
+  ['setsubject_91',['SetSubject',['../class_teacher.html#af7091a5ad103498c2cd1bc3f78b9a252',1,'Teacher']]],
+  ['start_92',['start',['../class_menu.html#ae1ec62e738dda7faaaec850bd0b58ffe',1,'Menu']]],
+  ['student_93',['Student',['../class_student.html#af9168cedbfa5565cf0b20c1a9d3f5c9d',1,'Student::Student()'],['../class_student.html#a56d9de698d5a0258b31718088693a3ce',1,'Student::Student(const Student &amp;st)']]],
+  ['studentsave_94',['StudentSave',['../class_data.html#a174cc1f5916197be45339c235f022a56',1,'Data']]]
 ];
